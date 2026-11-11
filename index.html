@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rexendaal: werk dat klopt (concept)</title>
+<meta name="description" content="Rexendaal maakt de ongeschreven deal tussen mens en organisatie bespreekbaar, meetbaar en stuurbaar. Per persoon, per team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f2e35; --ink-2:#2c4b52; --muted:#5b7076;
+  --petrol:#0b4f5c; --petrol-d:#083e48;
+  --paper:#f4f7f8; --paper-2:#e8eef0; --card:#ffffff;
+  --copper:#127a8a; --copper-2:#5fb3bf; --sage:#e3f0f1; --sage-2:#b7d8dc;
+  --cta:#e8641b; --cta-d:#c9520f;
+  --line:#dbe4e6; --radius:14px; --max:1140px;
+  --serif:'Fraunces',Georgia,serif; --sans:'Manrope',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+h2{font-size:clamp(1.7rem,3.4vw,2.5rem)}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+a{color:var(--copper)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.narrow{max-width:760px}
+section{padding:80px 0}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;display:block}
+.lead{font-size:1.2rem;color:var(--ink-2)}
+.muted{color:var(--muted)}
+.ph{background:#fff1c7;border-bottom:1px dashed #c99a1e;padding:0 3px;border-radius:3px}
+
+/* concept banner */
+.concept{background:var(--petrol-d);color:#e3eff1;font-size:.85rem;text-align:center;padding:7px 16px}
+.concept b{color:#ffb27f}
+.concept .ph{color:var(--ink)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:1.35rem;font-weight:700}
+.brand svg{flex:none}
+.menu{display:flex;gap:4px;align-items:center;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-weight:600;font-size:.93rem}
+.menu a:hover,.menu a.active{background:var(--sage)}
+.menu a.cta{background:var(--cta);color:#fff;margin-left:6px}
+.menu a.cta:hover{background:var(--cta-d)}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+@media(max-width:980px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;left:0;right:0;top:72px;background:var(--paper);flex-direction:column;align-items:stretch;padding:12px 24px 20px;border-bottom:1px solid var(--line)}
+  .menu.open{display:flex}
+  .menu a.cta{margin:8px 0 0;text-align:center}
+}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--petrol);cursor:pointer;font-family:var(--sans);font-size:1rem;transition:.15s}
+.btn.primary{background:var(--cta);border-color:var(--cta);color:#fff}
+.btn.primary:hover{background:var(--cta-d);border-color:var(--cta-d)}
+.btn.ghost{background:transparent;color:var(--petrol)}
+.btn.ghost:hover{background:var(--petrol);color:#fff}
+.btn.copper{background:var(--cta);border-color:var(--cta);color:#fff}
+.btn.copper:hover{background:var(--cta-d);border-color:var(--cta-d)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* hero */
+.hero{padding:90px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.hero h1 em{font-style:italic;color:var(--copper)}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr}}
+.venn{width:100%;max-width:420px;margin:0 auto;display:block}
+
+/* cards & grids */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:880px){.g2,.g3,.g4{grid-template-columns:1fr}}
+@media(min-width:600px) and (max-width:880px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.card h3{margin-bottom:.35em}
+.card .num{font-family:var(--serif);font-size:2.2rem;color:var(--copper);line-height:1;margin-bottom:10px;display:block}
+.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dark{background:var(--petrol);color:#eaf3f4}
+.dark h2,.dark h3{color:#fff}
+.dark .eyebrow{color:#9fd4db}
+.dark .lead{color:#cfe3e6}
+.dark .card{background:#0e5f6e;border-color:#1a6f7e;color:#e6f1f3}
+.sage{background:var(--sage)}
+
+/* fit visual */
+.fit{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+@media(max-width:700px){.fit{grid-template-columns:1fr}}
+.fit .card{text-align:center}
+.fit svg{height:120px;margin-bottom:10px}
+
+/* keys strip */
+.keys{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:30px}
+@media(max-width:980px){.keys{grid-template-columns:repeat(2,1fr)}}
+.key{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 14px;text-decoration:none;color:var(--ink)}
+.key b{display:block;font-family:var(--serif);font-size:1.05rem}
+.key small{color:var(--muted);font-size:.82rem;line-height:1.35;display:block;margin-top:3px}
+.key .k{font-size:.72rem;font-weight:700;color:var(--copper);letter-spacing:.1em}
+.dark .key{background:#0e5f6e;border-color:#1a6f7e;color:#fff}
+.dark .key small{color:#bfdde1}
+.dark .key .k{color:#9fd4db}
+
+/* ladder */
+.ladder{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:34px;align-items:end}
+.rung{padding:22px 18px;border:1px solid var(--line);background:var(--card);margin-left:-1px}
+.rung:nth-child(1){min-height:150px}.rung:nth-child(2){min-height:180px}.rung:nth-child(3){min-height:210px}.rung:nth-child(4){min-height:240px}.rung:nth-child(5){min-height:270px;background:var(--sage)}
+.rung .s{font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--copper);text-transform:uppercase}
+.rung h4{font-size:1.15rem;margin:.3em 0}
+.rung p{font-size:.9rem;color:var(--muted);margin:0}
+@media(max-width:880px){.ladder{grid-template-columns:1fr}.rung{min-height:0!important;margin:0 0 -1px}}
+
+/* split routes */
+.route{border-radius:var(--radius);padding:38px;display:flex;flex-direction:column}
+.route.org{background:var(--petrol);color:#eaf3f4}
+.route.org h3{color:#fff}
+.route.pro{background:var(--sage);color:var(--ink);border:1px solid var(--sage-2)}
+.route.pro h3{color:var(--ink)}
+.route .btn{margin-top:auto;align-self:flex-start;border-color:var(--cta);color:#fff;background:var(--cta)}
+.route .btn:hover{background:var(--cta-d);border-color:var(--cta-d)}
+.route ul{padding-left:20px;margin:0 0 26px}
+
+/* lists */
+.check{list-style:none;padding:0;margin:0}
+.check li{padding:8px 0 8px 32px;position:relative;border-bottom:1px solid var(--line)}
+.check li:last-child{border:0}
+.check li::before{content:"";position:absolute;left:0;top:14px;width:18px;height:18px;border-radius:50%;background:var(--sage-2);box-shadow:inset 0 0 0 5px var(--sage)}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:14px;margin-top:26px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:1.6rem;width:48px;height:48px;border-radius:50%;background:var(--sage);display:grid;place-items:center;color:var(--ink)}
+.step h4{margin:0 0 .2em;font-size:1.15rem}
+.step p{margin:0;color:var(--muted)}
+
+/* product cards */
+.product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column}
+.product.flag{border:2px solid var(--petrol);position:relative}
+.product .tag{position:absolute;top:-13px;left:24px;background:var(--petrol);color:#fff;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:.05em}
+.product dl{display:grid;grid-template-columns:110px 1fr;gap:6px 14px;font-size:.92rem;margin:16px 0 0}
+.product dt{font-weight:700;color:var(--muted)}
+.product dd{margin:0}
+.product .price{margin-top:auto;padding-top:18px;font-weight:700;font-family:var(--serif);font-size:1.15rem}
+.lvl{margin-top:56px}
+.lvl:first-of-type{margin-top:0}
+.lvl-head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--petrol);padding-bottom:10px;margin-bottom:22px}
+.lvl-head span{font-family:var(--serif);font-size:2rem;color:var(--copper)}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;font-size:.92rem}
+.tbl th,.tbl td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.tbl th{background:var(--petrol);color:#fff;font-weight:700}
+.tbl td:first-child{font-weight:700}
+.tbl tr.ours td{background:var(--sage)}
+.scroll{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--line)}
+
+/* accordion keys */
+.acc{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin-bottom:10px;overflow:hidden}
+.acc summary{list-style:none;cursor:pointer;padding:20px 24px;display:flex;align-items:center;gap:16px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .n{font-family:var(--serif);font-size:1.6rem;color:var(--copper);width:32px}
+.acc summary h3{margin:0;font-size:1.2rem}
+.acc summary small{color:var(--muted);display:block;font-family:var(--sans);font-size:.88rem}
+.acc summary::after{content:"+";margin-left:auto;font-size:1.6rem;color:var(--muted)}
+.acc[open] summary::after{content:"–"}
+.quad{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.quad div{background:#f7fbfb;padding:18px 22px;font-size:.93rem}
+.quad b{display:block;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--copper);margin-bottom:4px}
+@media(max-width:640px){.quad{grid-template-columns:1fr}}
+
+/* layers */
+.layers{display:grid;gap:10px;margin-top:20px}
+.layer{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:center;padding:16px 20px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+.layer b{font-family:var(--serif);font-size:1.05rem}
+.layer:nth-child(1){margin:0 0 0 0;background:var(--sage)}.layer:nth-child(2){margin-left:4%}.layer:nth-child(3){margin-left:8%}.layer:nth-child(4){margin-left:12%;background:var(--paper-2)}
+@media(max-width:700px){.layer{grid-template-columns:1fr;margin-left:0!important}}
+
+/* test */
+.test-row{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-bottom:14px}
+.test-row h3{margin:0 0 4px;font-size:1.2rem}
+.test-row h3 small{font-family:var(--sans);font-size:.85rem;color:var(--muted);font-weight:500}
+.test-row p.stmt{margin:0 0 16px;color:var(--ink-2)}
+.sl{display:grid;grid-template-columns:120px 1fr 44px;gap:14px;align-items:center;margin:8px 0}
+.sl label{font-weight:700;font-size:.92rem}
+.sl output{font-family:var(--serif);font-size:1.3rem;text-align:right;color:var(--copper)}
+input[type=range]{width:100%;accent-color:var(--petrol);height:28px}
+.dir{display:none;margin-top:10px;font-size:.9rem;gap:8px;flex-wrap:wrap;align-items:center}
+.dir.show{display:flex}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.seg button{background:#fff;border:0;padding:7px 14px;font-family:var(--sans);font-weight:600;cursor:pointer;font-size:.85rem;color:var(--ink)}
+.seg button.on{background:var(--petrol);color:#fff}
+.note{background:var(--sage);border-radius:12px;padding:16px 20px;font-size:.93rem}
+.progress{position:sticky;top:72px;z-index:5;background:var(--paper);padding:10px 0}
+.bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--copper);width:0;transition:.3s}
+
+.lik{display:grid;grid-template-columns:90px auto 90px;gap:12px;align-items:center}
+.lik small{font-size:.78rem;color:var(--muted);line-height:1.2}.lik small:last-child{text-align:right}
+.lik .seg button{min-width:46px;padding:10px 0;font-size:1rem}
+@media(max-width:560px){.lik{grid-template-columns:1fr 1fr}.lik .seg{grid-column:1/-1;grid-row:1;justify-self:center}}
+.choices{display:grid;gap:12px;margin-top:18px}
+.choice{text-align:left;font:inherit;font-weight:600;background:#fff;border:2px solid var(--line);border-radius:12px;padding:18px 20px;cursor:pointer;color:var(--ink);transition:.12s}
+.choice:hover{border-color:var(--petrol)}.choice.on{border-color:var(--petrol);background:var(--sage)}
+.dil{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch;margin:18px 0}
+.dil .opt{font:inherit;text-align:left;color:var(--ink);cursor:pointer;background:#fff;border:2px solid var(--line);border-radius:14px;padding:26px 22px;font-weight:600;font-size:1.05rem;line-height:1.4;transition:.12s}
+.dil .opt:hover{border-color:var(--petrol);transform:translateY(-2px);box-shadow:0 10px 24px -16px rgba(11,79,92,.5)}
+.dil .opt span{display:block;font-family:var(--serif);color:var(--copper);font-size:1.4rem;margin-bottom:6px}
+.dil .opt.on{border-color:var(--petrol);background:var(--sage)}
+.dil .vs{align-self:center;font-family:var(--serif);font-style:italic;color:var(--muted)}
+@media(max-width:640px){.dil{grid-template-columns:1fr}.dil .vs{text-align:center}}
+.scale4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.scale4 button{font:inherit;font-weight:700;padding:14px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.scale4 button:hover{border-color:var(--petrol)}.scale4 button.on{background:var(--petrol);border-color:var(--petrol);color:#fff}
+@media(max-width:520px){.scale4{grid-template-columns:repeat(2,1fr)}}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:10px}
+.ccard{font:inherit;font-weight:600;font-size:.95rem;text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;color:var(--ink);min-height:74px}
+.ccard:hover{border-color:var(--petrol)}.ccard.on{border-color:var(--petrol);background:var(--sage);box-shadow:inset 0 0 0 1px var(--petrol)}
+/* results */
+.result{display:none}
+.result.show{display:block}
+.score-big{font-family:var(--serif);font-size:4.5rem;line-height:1;color:var(--copper)}
+.chart{display:grid;gap:12px;margin:10px 0}
+.crow{display:grid;grid-template-columns:130px 1fr 74px;gap:14px;align-items:center;font-size:.92rem}
+.crow .tracks{display:grid;gap:4px}
+.track{height:10px;background:var(--paper-2);border-radius:10px;overflow:hidden}
+.track i{display:block;height:100%;border-radius:10px}
+.track.b i{background:var(--petrol)} .track.m i{background:var(--copper-2)}
+.flag-chip{font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:999px;text-align:center}
+.chip-low{background:#f7d9c6;color:#8a3d13}.chip-high{background:#fbe7c4;color:#7a5306}.chip-ok{background:var(--sage);color:var(--ink)}
+.legend{display:flex;gap:18px;font-size:.85rem;color:var(--muted);margin-bottom:10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* forms */
+.form{display:grid;gap:12px}
+.form input,.form textarea,.form select{font:inherit;padding:13px 15px;border-radius:10px;border:1px solid var(--line);background:#fff;width:100%;color:var(--ink)}
+.form label{font-weight:700;font-size:.9rem}
+.form .ok{display:none;background:var(--sage);padding:14px 16px;border-radius:10px;font-size:.93rem}
+.form .ok.show{display:block}
+.consent{display:flex;gap:10px;font-size:.85rem;color:var(--muted);align-items:flex-start}
+.consent input{width:auto;margin-top:4px}
+
+/* blog */
+.post{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;transition:.15s}
+.post:hover{transform:translateY(-2px);box-shadow:0 10px 30px -18px rgba(20,48,43,.4)}
+.post .cat{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper)}
+.post h3{margin:8px 0;font-size:1.2rem}
+.post .soon{margin-top:auto;font-size:.82rem;color:var(--muted);padding-top:10px}
+.dl{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start}
+.dl .ico{width:64px;height:80px;border-radius:6px;background:var(--petrol);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-size:.85rem;position:relative}
+.dl .ico::after{content:"";position:absolute;top:0;right:0;border-width:0 16px 16px 0;border-style:solid;border-color:var(--paper) var(--paper) var(--copper-2) var(--copper-2)}
+article.blog{font-size:1.08rem}
+article.blog h2{font-size:1.6rem;margin-top:1.6em}
+article.blog blockquote{margin:1.6em 0;padding:4px 0 4px 24px;border-left:4px solid var(--copper);font-family:var(--serif);font-size:1.35rem;line-height:1.35}
+
+/* views */
+.view{display:none}
+.view.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* footer */
+footer{background:var(--petrol-d);color:#bcd3d7;padding:60px 0 30px;font-size:.93rem}
+footer a{color:#e7efe9;text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer h4{color:#fff;font-size:1.05rem}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:34px}
+@media(max-width:800px){.foot{grid-template-columns:1fr 1fr}}
+.copy{border-top:1px solid #1a5f6b;margin-top:40px;padding-top:20px;font-size:.82rem}
+</style>
+</head>
+<body>
+
+<div class="concept"><b>Conceptversie</b> · werktitel model: “het 7 Keys Model” · <span class="ph">gemarkeerde tekst</span> = nog in te vullen</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Rexendaal home">
+      <svg width="38" height="28" viewBox="0 0 38 28" aria-hidden="true"><circle cx="13" cy="14" r="11" fill="none" stroke="#0b4f5c" stroke-width="2.5"/><circle cx="25" cy="14" r="11" fill="none" stroke="#127a8a" stroke-width="2.5"/><path d="M19 4.8a11 11 0 0 1 0 18.4a11 11 0 0 1 0-18.4z" fill="#127a8a" opacity=".25"/></svg>
+      Rexendaal
+    </a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.menu').classList.toggle('open')">
+      <svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0b4f5c" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <ul class="menu">
+      <li><a href="#organisaties">Voor organisaties</a></li>
+      <li><a href="#aanbod">Aanbod</a></li>
+      <li><a href="#model">Het model</a></li>
+      <li><a href="#kennisbank">Kennisbank</a></li>
+      <li><a href="#over">Over</a></li>
+      <li><a href="#werkgeluk-test">Werkgeluk-test</a></li>
+      <li><a class="cta" href="#contact">Kennismaken</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Leiderschap · Teams · Professionals</span>
+        <h1>Iedereen hetzelfde bieden is de <em>duurste fout</em> in leiderschap.</h1>
+        <p class="lead">Elke werkrelatie heeft een geschreven contract én een ongeschreven deal. Rexendaal maakt die deal bespreekbaar, meetbaar en stuurbaar: per persoon en per team. Zo houd je je beste mensen en haal je meer uit wat je al in hen investeert.</p>
+        <div class="btns">
+          <a class="btn primary" href="#organisaties">Voor organisaties</a>
+          <a class="btn ghost" href="#werkgeluk-test">Doe de werkgeluk-test</a>
+        </div>
+      </div>
+      <svg class="venn" viewBox="0 0 420 340" role="img" aria-label="Mens en organisatie overlappen: werk dat klopt">
+        <circle cx="150" cy="170" r="125" fill="#e3f0f1" stroke="#0b4f5c" stroke-width="2"/>
+        <circle cx="270" cy="170" r="125" fill="#cfe6e9" stroke="#127a8a" stroke-width="2" style="mix-blend-mode:multiply"/>
+        <text x="90" y="165" font-family="Fraunces" font-size="22" fill="#0f2e35" text-anchor="middle">Mens</text>
+        <text x="90" y="190" font-family="Manrope" font-size="12" fill="#5b7076" text-anchor="middle">brengt in · krijgt terug</text>
+        <text x="330" y="165" font-family="Fraunces" font-size="20" fill="#0f2e35" text-anchor="middle">Organisatie</text>
+        <text x="330" y="190" font-family="Manrope" font-size="12" fill="#5b7076" text-anchor="middle">investeert · krijgt terug</text>
+        <text x="210" y="160" font-family="Fraunces" font-size="17" font-style="italic" fill="#0f2e35" text-anchor="middle">werk dat</text>
+        <text x="210" y="183" font-family="Fraunces" font-size="17" font-style="italic" fill="#0f2e35" text-anchor="middle">klopt</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="grid g2" style="align-items:center;gap:56px">
+        <div>
+          <span class="eyebrow">Het probleem</span>
+          <h2>Mensen vertrekken zelden om wat er in hun contract staat.</h2>
+        </div>
+        <div>
+          <p>Het contract regelen we tot op de komma. Maar wat iemand écht van zijn werk verwacht, en wat de organisatie daar in ruil voor verwacht, blijft onuitgesproken. Tot het schuurt: een goede kracht haakt af, een team presteert onder zijn kunnen, een jaargesprek levert niets op.</p>
+          <p>Dan grijpen organisaties naar generieke oplossingen: één ontwikkelbudget, één beleid, één tevredenheidsonderzoek met gemiddelden. Zo investeer je te veel waar het niet nodig is, en te weinig waar het wel nodig is.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="narrow">
+        <span class="eyebrow">Ons inzicht</span>
+        <h2>Meer is niet altijd beter.</h2>
+        <p class="lead">Werk past zoals kleding past. Te krap knelt. Maar te ruim zit óók niet. Wat de één energie geeft, is voor de ander een bron van stress.</p>
+      </div>
+      <div class="fit">
+        <div class="card">
+          <svg viewBox="0 0 120 120"><rect x="38" y="20" width="44" height="86" rx="10" fill="#cfe6e9" stroke="#127a8a" stroke-width="2"/><circle cx="60" cy="58" r="30" fill="none" stroke="#0b4f5c" stroke-width="2.5" stroke-dasharray="4 4"/></svg>
+          <h3>Tekort</h3>
+          <p class="muted">Veel behoefte aan groei of regie, maar een routinefunctie met micromanagement. Gevolg: frustratie, bore-out, vertrek.</p>
+        </div>
+        <div class="card" style="border:2px solid var(--petrol)">
+          <svg viewBox="0 0 120 120"><rect x="28" y="20" width="64" height="86" rx="14" fill="#e3f0f1" stroke="#0b4f5c" stroke-width="2"/><circle cx="60" cy="58" r="26" fill="none" stroke="#0b4f5c" stroke-width="2.5"/></svg>
+          <h3>Passend</h3>
+          <p class="muted">Behoefte en werkelijkheid sluiten aan. Energie, eigenaarschap en een ruil die voor beide kanten loont.</p>
+        </div>
+        <div class="card">
+          <svg viewBox="0 0 120 120"><rect x="12" y="20" width="96" height="86" rx="16" fill="#cfe6e9" stroke="#127a8a" stroke-width="2"/><circle cx="60" cy="58" r="18" fill="none" stroke="#0b4f5c" stroke-width="2.5" stroke-dasharray="4 4"/></svg>
+          <h3>Overschot</h3>
+          <p class="muted">Liever stabiel vakwerk, maar continu in stretch-trajecten geduwd. Gevolg: stress, terwijl de leidinggevende denkt dat hij “ontwikkeling biedt”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="narrow">
+        <span class="eyebrow">Het 7 Keys Model</span>
+        <h2>Zeven sleutels. Twee vragen per sleutel.</h2>
+        <p class="lead">Hoe belangrijk is dit voor déze persoon? En in hoeverre wordt dat nu waargemaakt? Het verschil daartussen vertelt je precies waar het knelt, of waar je onnodig investeert.</p>
+      </div>
+      <div class="keys" id="home-keys"></div>
+      <div class="btns"><a class="btn copper" href="#model">Ontdek het model</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="narrow">
+        <span class="eyebrow">Zo werken we</span>
+        <h2>Van inzicht naar borging.</h2>
+        <p class="lead">Klein beginnen, met een meting die meteen iets oplevert. Daarna alleen verder waar het rendeert.</p>
+      </div>
+      <div class="ladder">
+        <div class="rung"><span class="s">1 · Inzicht</span><h4>Scans</h4><p>Team 7 Keys Scan: zie waar de deal knelt.</p></div>
+        <div class="rung"><span class="s">2 · Inspiratie</span><h4>Workshops</h4><p>Het gesprek op gang brengen, in het team of MT.</p></div>
+        <div class="rung"><span class="s">3 · Vaardigheden</span><h4>Trainingen</h4><p>Leidinggevenden leren het 7 Keys-gesprek voeren.</p></div>
+        <div class="rung"><span class="s">4 · Verandering</span><h4>Coaching</h4><p>Voor leiders, teams en professionals.</p></div>
+        <div class="rung"><span class="s">5 · Borging</span><h4>Teamontwikkeling</h4><p>Hermeting en vaste ritmes, zodat het blijft werken.</p></div>
+      </div>
+      <div class="btns"><a class="btn ghost" href="#aanbod">Bekijk het aanbod</a></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid g2">
+      <div class="route org">
+        <span class="eyebrow" style="color:#9fd4db">Voor organisaties</span>
+        <h3>Behoud je beste mensen. Haal meer uit wat je investeert.</h3>
+        <ul>
+          <li>Zie per team waar behoefte en werkelijkheid uiteenlopen</li>
+          <li>Vervang het jaargesprek door een gesprek dat ergens over gaat</li>
+          <li>Investeer gericht in plaats van generiek</li>
+        </ul>
+        <a class="btn" href="#teamscan">Ken jij de deal van je team? →</a>
+      </div>
+      <div class="route pro">
+        <span class="eyebrow">Voor professionals</span>
+        <h3>Wat heb jíj nodig om te floreren in je werk?</h3>
+        <ul>
+          <li>Ontdek in 8 minuten hoe je werk bij je past</li>
+          <li>Zie waar het schuurt, en of de ruil met je werk in balans is</li>
+          <li>Krijg handvatten voor het gesprek met je leidinggevende</li>
+        </ul>
+        <a class="btn" href="#werkgeluk-test">Doe de werkgeluk-test →</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow" style="text-align:center">
+      <span class="eyebrow">Pilotprogramma 2027</span>
+      <h2>Wij zoeken drie organisaties die vooroplopen.</h2>
+      <p class="lead">Organisaties die meedoen aan het pilotprogramma krijgen de Team 7 Keys Scan en het vervolgtraject tegen een gereduceerd tarief, in ruil voor een gezamenlijke evaluatie en een praktijkcase.</p>
+      <div class="btns" style="justify-content:center"><a class="btn primary" href="#contact">Meld je organisatie aan</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ORGANISATIES ================= -->
+<div class="view" id="v-organisaties">
+  <section class="hero" style="padding-bottom:40px">
+    <div class="wrap narrow">
+      <span class="eyebrow">Voor organisaties</span>
+      <h1>Je beste mensen houden begint met weten wat ze nodig hebben.</h1>
+      <p class="lead">Niet gemiddeld. Per persoon, per team. Rexendaal maakt zichtbaar waar de ongeschreven deal tussen medewerker en organisatie knelt, en helpt leidinggevenden die deal weer eerlijk en renderend te maken.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow">Herken je dit?</span>
+      <div class="grid g4">
+        <div class="card"><span class="num">01</span><h3>Goede mensen vertrekken</h3><p class="muted">En bij het exitgesprek blijkt pas wat ze misten.</p></div>
+        <div class="card"><span class="num">02</span><h3>Afhakers die blijven</h3><p class="muted">Ze doen hun werk, maar de energie en het eigenaarschap zijn weg.</p></div>
+        <div class="card"><span class="num">03</span><h3>Jaargesprekken als ritueel</h3><p class="muted">Formulier ingevuld, handtekening gezet, er verandert niets.</p></div>
+        <div class="card"><span class="num">04</span><h3>Generiek beleid</h3><p class="muted">Budget voor iedereen hetzelfde, effect voor bijna niemand.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid g2" style="gap:56px;align-items:start">
+      <div>
+        <span class="eyebrow">Onze aanpak</span>
+        <h2>Werkgeluk is geen soft thema. Het is een ruil.</h2>
+        <p>De medewerker brengt talent, tijd, energie en betrokkenheid in. De organisatie investeert in beloning, ontwikkeling, ruimte en leiderschap. Het werkt als beide partijen die ruil als eerlijk en waardevol ervaren.</p>
+        <p>Andere benaderingen kijken naar één kant: óf de medewerker moet veerkrachtiger worden, óf de organisatie moet meer faciliteren. Wij kijken naar de relatie, en maken beide partijen aanspreekbaar.</p>
+      </div>
+      <ul class="check">
+        <li><b>Meten wat ertoe doet:</b> niet tevredenheid, maar behoefte tegenover werkelijkheid, op zeven sleutels.</li>
+        <li><b>Tekort én overschot zichtbaar:</b> stop met investeren waar het niet nodig is.</li>
+        <li><b>Wederkerig:</b> de uitkomst is een concrete afspraak tussen twee partijen, geen actielijst voor HR.</li>
+        <li><b>Leidinggevenden als motor:</b> zij leren het gesprek voeren; wij maken onszelf overbodig.</li>
+        <li><b>Meetbaar resultaat:</b> een nulmeting en een hermeting laten zien wat er veranderd is.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <span class="eyebrow">Zo verloopt een traject</span>
+      <h2>In vijf stappen van inzicht naar borging.</h2>
+      <div class="steps">
+        <div class="step"><div><h4>Team 7 Keys Scan</h4><p>Elk teamlid vult belang en match in op zeven sleutels. Je krijgt een teamrapport: waar knelt het, waar slobbert het?</p></div></div>
+        <div class="step"><div><h4>Terugkoppelsessie</h4><p>In twee uur bespreken we de uitkomsten met leidinggevende en team, en bepalen we de prioriteiten.</p></div></div>
+        <div class="step"><div><h4>Het 7 Keys-gesprek</h4><p>Leidinggevenden leren per medewerker het gesprek voeren over de deal, en concrete wederzijdse afspraken maken.</p></div></div>
+        <div class="step"><div><h4>Gerichte interventie</h4><p>Alleen waar het nodig is: coaching, een workshop of teamontwikkeling.</p></div></div>
+        <div class="step"><div><h4>Hermeting</h4><p>Na <span class="ph">zes maanden</span> meten we opnieuw. Wat is verbeterd, wat vraagt nog aandacht?</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap grid g2" style="gap:56px;align-items:center">
+      <div>
+        <span class="eyebrow">Wat het oplevert</span>
+        <h2>Een team dat weet wat het van elkaar mag verwachten.</h2>
+      </div>
+      <div class="grid g2">
+        <div class="card"><h3>Behoud</h3><p>Mismatches zie je vóórdat iemand vertrekt.</p></div>
+        <div class="card"><h3>Prestaties</h3><p>Energie en eigenaarschap waar ze het meest opleveren.</p></div>
+        <div class="card"><h3>Rendement</h3><p>Budget gaat naar wat mensen echt nodig hebben.</p></div>
+        <div class="card"><h3>Volwassen gesprek</h3><p>Niet psychologiseren, niet klagen: afspraken maken.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g2" style="gap:30px">
+      <div class="card" style="padding:38px">
+        <span class="eyebrow">Gratis quickscan</span>
+        <h3 style="font-size:1.6rem">Ken jij de deal van je team?</h3>
+        <p class="muted">Tien vragen, vijf minuten. Ontdek hoe goed je weet wat je mensen nodig hebben, en waar je blinde vlekken zitten.</p>
+        <a class="btn primary" href="#teamscan">Start de quickscan</a>
+      </div>
+      <div class="card" style="padding:38px;background:var(--sage)">
+        <span class="eyebrow">Pilotprogramma 2027</span>
+        <h3 style="font-size:1.6rem">Doe mee als pilotorganisatie</h3>
+        <p class="muted">Drie plekken. Team 7 Keys Scan en vervolgtraject tegen gereduceerd tarief, in ruil voor een gezamenlijke evaluatie.</p>
+        <a class="btn ghost" href="#contact">Plan een kennismaking</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= AANBOD ================= -->
+<div class="view" id="v-aanbod">
+  <section class="hero" style="padding-bottom:30px">
+    <div class="wrap narrow">
+      <span class="eyebrow">Aanbod</span>
+      <h1>Eén methode. Vijf treden.</h1>
+      <p class="lead">Alles wat we doen is een toepassing van het 7 Keys Model. Je begint met inzicht, en gaat alleen verder waar het rendeert.</p>
+    </div>
+  </section>
+  <section style="padding-top:20px">
+    <div class="wrap" id="aanbod-list"></div>
+  </section>
+</div>
+
+<!-- ================= MODEL ================= -->
+<div class="view" id="v-model">
+  <section class="hero" style="padding-bottom:40px">
+    <div class="wrap narrow">
+      <span class="eyebrow">Het 7 Keys Model</span>
+      <h1>Werkgeluk ontstaat in de relatie. Niet in de mens, niet in de organisatie.</h1>
+      <p class="lead">Het 7 Keys Model benadert werkgeluk als een wederkerige uitwisseling. Het is succesvol wanneer beide partijen de ruil als eerlijk, passend en wederzijds waardevol ervaren.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid g3">
+      <div class="card"><span class="eyebrow">De transactie</span><h3>Wat brengen we in, wat krijgen we terug?</h3><p class="muted">Vier kanten per sleutel: wat de medewerker inbrengt en terugkrijgt, wat de organisatie investeert en terugkrijgt.</p></div>
+      <div class="card"><span class="eyebrow">Twee assen</span><h3>Behoefte × vervulling</h3><p class="muted">Per sleutel: hoe belangrijk is dit voor déze persoon, en in hoeverre wordt dat nu waargemaakt?</p></div>
+      <div class="card"><span class="eyebrow">Twee soorten frictie</span><h3>Tekort én overschot</h3><p class="muted">Frictie ontstaat zowel bij te weinig als bij te veel. Meer autonomie, uitdaging of verandering is niet altijd beter.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="narrow">
+        <span class="eyebrow">De zeven sleutels</span>
+        <h2>Van binnen naar buiten.</h2>
+        <p class="lead">De volgorde is bewust: van de intrinsieke motor naar de faciliterende basis. Zo werkt het model ook als diagnostische route.</p>
+      </div>
+      <div class="layers">
+        <div class="layer"><b>Intrinsieke motor</b><span>1 Meaning · 2 Drive: richting, waarden, energie en talent</span></div>
+        <div class="layer"><b>Interactie met de taak</b><span>3 Growth · 4 Impact: ontwikkeling, vakmanschap en regie</span></div>
+        <div class="layer"><b>Interactie met de omgeving</b><span>5 Connection: sociale bedding en erkenning</span></div>
+        <div class="layer"><b>Faciliterende basis</b><span>6 Reward · 7 Personal Fit: zekerheid, beloning, werkstijl en levensfase</span></div>
+      </div>
+      <div style="margin-top:40px" id="model-acc"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="narrow">
+        <span class="eyebrow">In perspectief</span>
+        <h2>Wat dit model anders doet.</h2>
+        <p class="lead">Bestaande benaderingen bieden waardevolle inzichten, maar kijken elk vooral naar één kant van het verhaal.</p>
+      </div>
+      <div class="scroll" style="margin-top:28px">
+        <table class="tbl">
+          <thead><tr><th></th><th>7 Keys Model</th><th>Positieve psychologie (PERMA)</th><th>Employee experience</th><th>Belasting & hulpbronnen (JD-R)</th></tr></thead>
+          <tbody>
+            <tr><td>Wie is verantwoordelijk?</td><td>Beide partijen, wederkerig</td><td>Vooral het individu</td><td>Vooral de werkgever</td><td>Het systeem: balans tussen taken en bronnen</td></tr>
+            <tr><td>Startpunt</td><td>De ruil: wat stoppen we erin, wat halen we eruit?</td><td>De binnenkant: mindset en beleving</td><td>De buitenkant: cultuur, faciliteiten, systemen</td><td>De weegschaal: stressoren tegenover hulpbronnen</td></tr>
+            <tr><td>Sterk in</td><td>Volwassen gesprek, maatwerk per persoon</td><td>Zingeving en veerkracht</td><td>Organisatie-inrichting</td><td>Verzuim- en burn-outpreventie</td></tr>
+            <tr><td>Aandachtspunt</td><td>Vraagt volwassenheid van beide partijen</td><td>Randvoorwaarden raken uit beeld</td><td>Medewerker kan passief worden</td><td>Minder oog voor bezieling en groei</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="margin-top:28px">
+        <span class="eyebrow">Voorbeeld: autonomie</span>
+        <p style="margin:0;font-family:var(--serif);font-size:1.25rem;line-height:1.45">Niet “jij moet assertiever worden”, en ook niet “de organisatie moet loslaten”. Maar: als de organisatie jou ruimte en mandaat geeft, welke expertise en welke besluitkracht lever jij daar dan concreet voor?</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow" style="text-align:center">
+      <h2>Waar staat jij, of je team?</h2>
+      <div class="btns" style="justify-content:center">
+        <a class="btn primary" href="#werkgeluk-test">Doe de werkgeluk-test</a>
+        <a class="btn ghost" href="#teamscan">Quickscan voor leidinggevenden</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= WERKGELUK-TEST ================= -->
+<div class="view" id="v-werkgeluk-test">
+  <section class="hero" style="padding-bottom:20px">
+    <div class="wrap narrow">
+      <span class="eyebrow">Werkgeluk-test · gratis · ± 8 minuten</span>
+      <h1>Hoe past je werk bij jou?</h1>
+      <p class="lead">Drie korte rondes vol keuzes waar geen goed of fout antwoord op bestaat. Aan het eind weet je wat jij echt nodig hebt, waar je werk schuurt, en hoe de ruil tussen jou en je werk ervoor staat.</p>
+    </div>
+  </section>
+  <section style="padding-top:10px">
+    <div class="wrap narrow">
+      <div class="progress" id="w-progress" style="display:none"><div class="bar"><i id="w-bar"></i></div><small class="muted" id="w-prog"></small></div>
+      <div id="w-stage"></div>
+
+      <div class="result" id="w-result" style="margin-top:20px">
+        <div class="card" style="padding:36px">
+          <span class="eyebrow">Jouw uitslag</span>
+          <div class="grid g2" style="align-items:center;gap:30px">
+            <div><div class="score-big" id="w-score">0</div><p class="muted" style="margin:6px 0 0">Pasvorm-score (0–100): hoe goed je werk nu levert wat voor jóu het zwaarst weegt.</p></div>
+            <p id="w-verdict" style="margin:0;font-size:1.1rem"></p>
+          </div>
+        </div>
+
+        <div class="grid g3" style="margin-top:18px" id="w-cards"></div>
+
+        <div class="card" style="margin-top:18px">
+          <span class="eyebrow">De ruil</span>
+          <div class="grid g2" style="gap:30px;align-items:center">
+            <div id="w-quad"></div>
+            <div><h3 id="w-ruil-t"></h3><p id="w-ruil-x" class="muted"></p><p id="w-ruil-tip" style="margin:0;font-size:.95rem"></p></div>
+          </div>
+          <div id="w-trades" style="margin-top:24px"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <span class="eyebrow">Achter de schermen: het 7 Keys Model</span>
+          <h3>Jouw profiel op de zeven sleutels</h3>
+          <p class="muted">Je keuzes zijn vertaald naar zeven sleutels van werkgeluk. Per sleutel zie je hoe zwaar die voor jou weegt (uit je dilemma's) en hoe je werk er nu op scoort (uit je kaartjes).</p>
+          <div class="legend"><span><i style="background:var(--petrol)"></i>Weegt voor jou</span><span><i style="background:var(--copper-2)"></i>Je werk nu</span></div>
+          <div class="chart" id="w-chart"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px;background:var(--petrol);color:#eaf3f4;border:0;padding:36px">
+          <div class="grid g2" style="gap:30px">
+            <div>
+              <span class="eyebrow" style="color:#9fd4db">Volledig rapport</span>
+              <h3 style="color:#fff;font-size:1.5rem">Ontvang je volledige rapport per mail</h3>
+              <p>Met je behoefteprofiel per onderdeel, je ruilprofiel, wat je zelf kunt doen, en een voorbereiding op het gesprek met je leidinggevende over de ruil.</p>
+            </div>
+            <form class="form lead-form" data-msg="Bedankt! In deze conceptversie wordt nog niets verstuurd; in de live-versie ontvang je hier je volledige rapport.">
+              <input type="text" placeholder="Voornaam">
+              <input type="email" placeholder="E-mailadres" required>
+              <label class="consent" style="color:#bfdde1"><input type="checkbox" required> Ik ontvang mijn rapport en een korte mailserie over werkgeluk. Afmelden kan altijd.</label>
+              <button class="btn copper" type="submit">Stuur mijn rapport</button>
+              <div class="ok"></div>
+            </form>
+          </div>
+        </div>
+        <div class="btns"><button class="btn ghost" type="button" id="w-restart">Test opnieuw doen</button></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= TEAMSCAN (quickscan leidinggevenden) ================= -->
+<div class="view" id="v-teamscan">
+  <section class="hero" style="padding-bottom:30px">
+    <div class="wrap narrow">
+      <span class="eyebrow">Quickscan voor leidinggevenden · 5 minuten</span>
+      <h1>Ken jij de deal van je team?</h1>
+      <p class="lead">Je mensen verwachten iets van je, ook als ze het nooit uitspreken. Tien stellingen laten zien hoe goed je weet wat je teamleden nodig hebben, en waar je blinde vlekken zitten.</p>
+    </div>
+  </section>
+  <section style="padding-top:10px">
+    <div class="wrap narrow">
+      <div class="progress"><div class="bar"><i id="q-bar"></i></div><small class="muted" id="q-prog">0 van 10 stellingen beantwoord</small></div>
+      <div id="q-list"></div>
+      <div class="btns"><button class="btn primary" id="q-go">Bekijk mijn uitslag</button></div>
+      <div class="result" id="q-result" style="margin-top:50px">
+        <div class="card" style="padding:36px">
+          <span class="eyebrow">Jouw uitslag</span>
+          <div class="grid g2" style="align-items:center;gap:30px">
+            <div><div class="score-big" id="q-score">0</div><p class="muted" style="margin:6px 0 0">Hoe goed ken je de deal van je team (0–100)?</p></div>
+            <div><h3 id="q-title"></h3><p id="q-text" style="margin:0"></p></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>Je mogelijke blinde vlekken</h3>
+          <div id="q-blind"></div>
+        </div>
+        <div class="card" style="margin-top:18px;background:var(--petrol);color:#eaf3f4;border:0;padding:36px">
+          <div class="grid g2" style="gap:30px">
+            <div>
+              <span class="eyebrow" style="color:#9fd4db">Volgende stap</span>
+              <h3 style="color:#fff;font-size:1.5rem">Weten in plaats van vermoeden</h3>
+              <p>Deze quickscan meet wat jíj denkt te weten. De Team 7 Keys Scan laat zien wat je teamleden zelf aangeven, per persoon en per sleutel.</p>
+              <a class="btn copper" href="#aanbod" style="margin-top:6px">Bekijk de Team 7 Keys Scan</a>
+            </div>
+            <form class="form lead-form" data-msg="Bedankt! In deze conceptversie wordt nog niets verstuurd; in de live-versie ontvang je hier je rapport en de gesprekskaart.">
+              <label style="color:#fff">Ontvang je rapport + de gesprekskaart “Het 7 Keys-gesprek”</label>
+              <input type="text" placeholder="Naam" required>
+              <input type="email" placeholder="Zakelijk e-mailadres" required>
+              <input type="text" placeholder="Organisatie">
+              <label class="consent" style="color:#bfdde1"><input type="checkbox" required> Ik ontvang mijn rapport en een korte mailserie over leiderschap. Afmelden kan altijd.</label>
+              <button class="btn copper" type="submit">Stuur mijn rapport</button>
+              <div class="ok"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= KENNISBANK ================= -->
+<div class="view" id="v-kennisbank">
+  <section class="hero" style="padding-bottom:30px">
+    <div class="wrap narrow">
+      <span class="eyebrow">Kennisbank</span>
+      <h1>Over de ongeschreven deal.</h1>
+      <p class="lead">Artikelen, tools en downloads voor leidinggevenden, HR en professionals.</p>
+    </div>
+  </section>
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <h2 style="font-size:1.6rem">Artikelen</h2>
+      <div class="grid g3" id="blog-list"></div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2 style="font-size:1.6rem">Downloads</h2>
+      <div class="grid g2" id="dl-list"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ARTIKEL ================= -->
+<div class="view" id="v-artikel-duurste-fout">
+  <section class="hero" style="padding-bottom:20px">
+    <div class="wrap narrow">
+      <a href="#kennisbank" style="font-weight:700;text-decoration:none">← Kennisbank</a>
+      <span class="eyebrow" style="margin-top:24px">Leiderschap · 5 min lezen</span>
+      <h1>Iedereen hetzelfde bieden is de duurste fout in leiderschap</h1>
+    </div>
+  </section>
+  <section style="padding-top:10px">
+    <article class="wrap narrow blog">
+      <p class="lead">Het voelt eerlijk: iedereen hetzelfde ontwikkelbudget, dezelfde vrijheid, hetzelfde jaargesprek. Maar gelijk behandelen is niet hetzelfde als goed behandelen. En het is vaak verrassend duur.</p>
+      <p>Neem twee medewerkers in hetzelfde team. Sanne wil groeien: ze zoekt nieuwe uitdagingen, wil meer verantwoordelijkheid en kijkt al naar de volgende stap. Mark is een ervaren vakman die vooral stabiel en goed werk wil leveren; hij heeft net een tweede kind gekregen en wil vooral voorspelbaarheid.</p>
+      <p>De organisatie biedt beiden hetzelfde: een ontwikkeltraject en een stretch-opdracht. Voor Sanne is het te weinig: ze kijkt al rond. Voor Mark is het te veel: hij ervaart stress en voelt zich niet gezien. Twee keer geïnvesteerd, twee keer mis.</p>
+      <blockquote>Meer is niet altijd beter. Ook niet in werk.</blockquote>
+      <h2>De ongeschreven deal</h2>
+      <p>Elke werkrelatie heeft een geschreven contract en een ongeschreven deal. Het contract regelt salaris, uren en taken. De ongeschreven deal gaat over alles wat iemand daarnaast verwacht: zingeving, ruimte, groei, erkenning, flexibiliteit. En over wat de organisatie daar in ruil voor verwacht.</p>
+      <p>Omdat die deal onuitgesproken blijft, merken we pas dat hij niet klopt als het te laat is: bij het exitgesprek, of als iemand al maanden “op de automatische piloot” werkt.</p>
+      <h2>Van gemiddelden naar maatwerk</h2>
+      <p>Een tevredenheidsonderzoek vertelt je dat het team gemiddeld een 7 geeft voor ontwikkelmogelijkheden. Maar dat gemiddelde kan bestaan uit iemand die een 4 geeft omdat er te weinig is, en iemand die een 4 geeft omdat er te veel is. Het gemiddelde verbergt precies de informatie die je nodig hebt.</p>
+      <p>Het 7 Keys Model stelt daarom per sleutel twee vragen: hoe belangrijk is dit voor deze persoon, en in hoeverre wordt dat nu waargemaakt? Pas dan zie je waar je moet bijsturen, en waar je juist kunt stoppen met investeren.</p>
+      <h2>Wat je morgen kunt doen</h2>
+      <ol>
+        <li>Kies drie teamleden en schrijf voor jezelf op wat jij denkt dat ze het meest nodig hebben.</li>
+        <li>Vraag het ze. Letterlijk: “Wat heb jij nodig om hier het beste werk van je leven te doen?”</li>
+        <li>Vergelijk. De verschillen zijn je blinde vlekken.</li>
+      </ol>
+      <div class="card" style="margin-top:40px;background:var(--sage)">
+        <h3>Hoe goed ken jij de deal van je team?</h3>
+        <p class="muted">Doe de gratis quickscan voor leidinggevenden: tien stellingen, vijf minuten.</p>
+        <a class="btn primary" href="#teamscan">Start de quickscan</a>
+      </div>
+    </article>
+  </section>
+</div>
+
+<!-- ================= OVER ================= -->
+<div class="view" id="v-over">
+  <section class="hero">
+    <div class="wrap grid g2" style="gap:56px;align-items:center">
+      <div>
+        <span class="eyebrow">Over Rexendaal</span>
+        <h1>Betere resultaten door sterk leiderschap, effectieve teams en bevlogen professionals.</h1>
+      </div>
+      <div>
+        <p class="lead">Rexendaal begeleidt leiders, teams en professionals met een praktische, resultaatgerichte aanpak die is gekoppeld aan de doelen van de organisatie.</p>
+        <p><span class="ph">[Het verhaal van de oprichter: achtergrond, ervaring, en waarom de werkrelatie het vertrekpunt is. Waarom Rexendaal? Wat heb je zelf gezien in organisaties dat tot dit model leidde?]</span></p>
+      </div>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap grid g3">
+      <div class="card"><h3>Zakelijk</h3><p class="muted">We psychologiseren niet en we klagen niet. We maken de ruil bespreekbaar, en maken afspraken.</p></div>
+      <div class="card"><h3>Wederkerig</h3><p class="muted">Werkgeluk is een gedeelde verantwoordelijkheid van medewerker én organisatie.</p></div>
+      <div class="card"><h3>Meetbaar</h3><p class="muted">Een nulmeting en een hermeting laten zien wat een traject oplevert.</p></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap narrow">
+      <span class="eyebrow">Fundering</span>
+      <h2>Gebouwd op brede consensus.</h2>
+      <p>Het 7 Keys Model is niet gebaseerd op één theorie, maar op het snijvlak van managementtheorie, loopbaanwetenschap en positieve psychologie, waaronder de zelfdeterminatietheorie, flow, de hygiëne-motivatietheorie van Herzberg, positief management en loopbaancoaching. Het voegt daar één ding aan toe: de wederkerigheid tussen mens en organisatie.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="view" id="v-contact">
+  <section class="hero">
+    <div class="wrap grid g2" style="gap:56px;align-items:start">
+      <div>
+        <span class="eyebrow">Kennismaken</span>
+        <h1>Laten we het gesprek voeren.</h1>
+        <p class="lead">Een kennismaking duurt <span class="ph">30 minuten</span> en is vrijblijvend. We verkennen je vraag en kijken of de Team 7 Keys Scan of het pilotprogramma past.</p>
+        <ul class="check" style="margin-top:20px">
+          <li><span class="ph">[e-mailadres]</span></li>
+          <li><span class="ph">[telefoonnummer]</span></li>
+          <li><span class="ph">[werkgebied / adres]</span></li>
+        </ul>
+      </div>
+      <div class="card" style="padding:34px">
+        <form class="form lead-form" data-msg="Dank je! In deze conceptversie wordt het formulier nog niet verzonden.">
+          <label>Naam<input type="text" required></label>
+          <label>Organisatie<input type="text"></label>
+          <label>E-mailadres<input type="email" required></label>
+          <label>Waar gaat het over?
+            <select><option>Team 7 Keys Scan</option><option>Pilotprogramma 2027</option><option>Training of workshop</option><option>Coaching</option><option>Iets anders</option></select>
+          </label>
+          <label>Toelichting<textarea rows="4"></textarea></label>
+          <button class="btn primary" type="submit">Verstuur</button>
+          <div class="ok"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h4 style="font-family:var(--serif);font-size:1.4rem">Rexendaal</h4>
+        <p>Werk dat klopt. Voor mens én organisatie.</p>
+      </div>
+      <div><h4>Organisaties</h4><ul><li><a href="#organisaties">Onze aanpak</a></li><li><a href="#aanbod">Aanbod</a></li><li><a href="#teamscan">Quickscan leidinggevenden</a></li></ul></div>
+      <div><h4>Professionals</h4><ul><li><a href="#werkgeluk-test">Werkgeluk-test</a></li><li><a href="#model">Het model</a></li><li><a href="#kennisbank">Kennisbank</a></li></ul></div>
+      <div><h4>Rexendaal</h4><ul><li><a href="#over">Over</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Rexendaal Training & Coaching · Conceptversie</div>
+  </div>
+</footer>
+
+<script>
+const KEYS=[
+ {id:'meaning',name:'Meaning',nl:'Betekenis',det:'Doel + waarden',stmt:'Mijn werk sluit aan bij mijn waarden, overtuigingen en wat ik belangrijk vind in het leven.',
+  brings:'Idealen, ethiek, loyaliteit aan de missie en betrokkenheid.',gets:'Gevoel van zin, betekenis en morele congruentie.',invests:'Duidelijke koers, ethisch leiderschap en maatschappelijke waarde.',receives:'Ambassadeurs, intrinsieke loyaliteit en cultuurdragers.',
+  lead:'Ik weet per teamlid wat hij of zij in dit werk zinvol vindt, en waar het schuurt met eigen waarden.'},
+ {id:'drive',name:'Drive',nl:'Energie & talent',det:'Interesses + talenten',stmt:'Mijn werk benut mijn interesses, energie en natuurlijke talenten.',
+  brings:'Natuurlijke energie, passie en unieke kernkwaliteiten.',gets:'Focus, werkplezier en de ervaring van flow.',invests:'Talentgerichte cultuur, passend takenpakket en rollenmobiliteit.',receives:'Hoge productiviteit, innovatiekracht en proactieve inzet.',
+  lead:'Ik weet per teamlid welke taken energie geven, en welke energie kosten.'},
+ {id:'growth',name:'Growth',nl:'Groei & ontwikkeling',det:'Uitdaging + ontwikkeling',stmt:'Mijn werk biedt uitdaging en mogelijkheden om te leren en te groeien.',
+  brings:'Leerbereidheid, stretch-capaciteit en groeimotivatie.',gets:'Nieuwe kennis, competenties en perspectief.',invests:'Ontwikkelbudget, loopbaanbegeleiding en uitdagend werk.',receives:'Toekomstbestendigheid, wendbaarheid en behoud van vakkennis.',
+  lead:'Ik weet wie wil groeien, en wie juist liever stabiel vakwerk levert.'},
+ {id:'impact',name:'Impact',nl:'Invloed & autonomie',det:'Vaardigheden + autonomie',stmt:'Ik heb invloed, autonomie en ruimte om mijn expertise in te zetten.',
+  brings:'Expertise, vakmanschap en probleemoplossend vermogen.',gets:'Invloed, eigenaarschap en ruimte om het verschil te maken.',invests:'Mandaat, minder bureaucratie, geen micromanagement.',receives:'Snelle besluitvorming, kwaliteit en strakke uitvoering.',
+  lead:'Ik weet wie meer ruimte en mandaat wil, en voor wie te veel vrijheid juist onrust geeft.'},
+ {id:'connection',name:'Connection',nl:'Verbondenheid',det:'Verbondenheid + erkenning',stmt:'Ik voel mij verbonden met collega’s, leidinggevenden en de organisatie.',
+  brings:'Samenwerking, open feedback en collegiale steun.',gets:'Psychologische veiligheid, erkenning en erbij horen.',invests:'Inclusief klimaat, teamontwikkeling en expliciete waardering.',receives:'Synergie, weinig onderlinge frictie, sterk psychologisch contract.',
+  lead:'Ik weet per teamlid hoeveel verbinding en zichtbare erkenning hij of zij nodig heeft.'},
+ {id:'reward',name:'Reward',nl:'Beloning & zekerheid',det:'Zekerheid + beloning',stmt:'De beloning, waardering en zekerheid passen bij mijn verwachtingen en behoeften.',
+  brings:'Tijd, betrouwbaarheid en langdurige commitment.',gets:'Financiële rust, stabiliteit en voorspelbaarheid.',invests:'Marktconform salaris, goede voorwaarden en contracthelderheid.',receives:'Continuïteit, lage wervingskosten en rust in de bezetting.',
+  lead:'Ik weet wat zekerheid en beloning voor ieder teamlid betekenen in deze levensfase.'},
+ {id:'fit',name:'Personal Fit',nl:'Werkstijl & leven',det:'Werkstijl + levensintegratie',stmt:'Mijn werk sluit aan bij mijn gewenste werkstijl, levensfase en privéleven.',
+  brings:'Flexibiliteit, focus op resultaat en inzet naar situatie.',gets:'Flexibiliteit, eigen werkstijl en passendheid bij de levensfase.',invests:'Flexibele kaders, sturen op output, begrip voor privé.',receives:'Duurzame inzetbaarheid, laag verzuim en focus tijdens werktijd.',
+  lead:'Ik weet hoe werkstijl en privésituatie van ieder teamlid passen bij hoe wij werken.'}
+];
+
+/* ---------- home keys ---------- */
+document.getElementById('home-keys').innerHTML=KEYS.map((k,i)=>`<a class="key" href="#model"><span class="k">KEY ${i+1}</span><b>${k.name}</b><small>${k.nl}</small></a>`).join('');
+
+/* ---------- model accordion ---------- */
+document.getElementById('model-acc').innerHTML=KEYS.map((k,i)=>`
+<details class="acc"${i===0?' open':''}><summary><span class="n">${i+1}</span><div><h3>${k.name} <span style="font-weight:400;color:var(--muted)">· ${k.nl}</span></h3><small>${k.det}</small></div></summary>
+<div class="quad">
+ <div><b>Medewerker brengt in</b>${k.brings}</div><div><b>Medewerker krijgt terug</b>${k.gets}</div>
+ <div><b>Organisatie investeert</b>${k.invests}</div><div><b>Organisatie krijgt terug</b>${k.receives}</div>
+</div></details>`).join('');
+
+/* ---------- aanbod ---------- */
+const OFFER=[
+ {lvl:'Inzicht',sub:'Weten in plaats van vermoeden',items:[
+  {flag:'Instapproduct',t:'Team 7 Keys Scan',d:'Elk teamlid geeft per sleutel belang en match aan. Je krijgt een teamrapport en een terugkoppelsessie van twee uur.',who:'Teams van 5–25 personen',form:'Online scan + sessie',dur:'± 3 weken',res:'Teamprofiel, top-3 knelpunten, prioriteiten',price:'Vaste prijs: <span class="ph">€ [prijs]</span>'},
+  {t:'Werkgeluk-test',d:'De gratis online test voor professionals: hoe past je werk bij jou, en is de ruil in balans?',who:'Professionals',form:'Online',dur:'± 8 minuten',res:'Pasvorm-score, ruilprofiel, tekort & overschot',price:'Gratis',link:'#werkgeluk-test'},
+  {t:'Quickscan leidinggevenden',d:'“Ken jij de deal van je team?” Tien stellingen over hoe goed je weet wat je mensen nodig hebben.',who:'Leidinggevenden',form:'Online',dur:'5 minuten',res:'Score + blinde vlekken',price:'Gratis',link:'#teamscan'}]},
+ {lvl:'Inspiratie',sub:'Het gesprek op gang brengen',items:[
+  {flag:'Vlaggenschip',t:'Werkgeluk als prestatieversneller',d:'Waarom meer niet altijd beter is, en wat dat betekent voor hoe je investeert in mensen.',who:'MT, leidinggevenden, HR',form:'Workshop',dur:'<span class="ph">3 uur</span>',res:'Gedeelde taal + eerste inzichten',price:'<span class="ph">€ [prijs]</span>'},
+  {t:'Van samenwerken naar samenspel',d:'Verbondenheid en erkenning in het team: wat heeft ieder nodig, wat brengt ieder in? (Key 5)',who:'Teams',form:'Workshop',dur:'<span class="ph">½ dag</span>',res:'Teamafspraken',price:'<span class="ph">€ [prijs]</span>'},
+  {t:'De kracht van eigenaarschap',d:'Ruimte krijgen én verantwoordelijkheid nemen: de ruil rond autonomie expliciet maken. (Key 4)',who:'Teams, professionals',form:'Workshop',dur:'<span class="ph">½ dag</span>',res:'Mandaat- en verantwoordelijkheidsafspraken',price:'<span class="ph">€ [prijs]</span>'},
+  {t:'Van expertise naar invloed',d:'Voor specialisten: hoe zet je vakmanschap om in invloed? (Key 4)',who:'Professionals, specialisten',form:'Workshop',dur:'<span class="ph">½ dag</span>',res:'Persoonlijk invloedsplan',price:'<span class="ph">€ [prijs]</span>'}]},
+ {lvl:'Vaardigheden',sub:'Leidinggevenden in hun kracht',items:[
+  {flag:'Signatuurproduct',t:'Het 7 Keys-gesprek voeren',d:'Vervang het jaargesprek door een gesprek dat ergens over gaat. Leidinggevenden leren per medewerker de deal bespreken en wederzijdse afspraken maken.',who:'Leidinggevenden, HR',form:'Training + gesprekskaart',dur:'<span class="ph">2 dagdelen</span>',res:'Direct toepasbaar gespreksmodel',price:'<span class="ph">€ [prijs]</span>'},
+  {t:'Persoonlijk leiderschap',d:'Je eigen profiel als vertrekpunt: wat heb jij nodig, en wat breng je in?',who:'Professionals, aankomend leidinggevenden',form:'Training',dur:'<span class="ph">[duur]</span>',res:'Persoonlijk ontwikkelplan',price:'<span class="ph">€ [prijs]</span>'},
+  {t:'Leiderschap in de praktijk',d:'Sturen op de match: van gelijk behandelen naar goed behandelen.',who:'Team- en afdelingsleiders',form:'Leertraject',dur:'<span class="ph">[duur]</span>',res:'Leiderschapsaanpak per teamlid',price:'<span class="ph">€ [prijs]</span>'}]},
+ {lvl:'Verandering',sub:'Begeleiding waar het telt',items:[
+  {t:'Leiderschapscoaching',d:'Voor teamleiders en managers die beter willen sturen op wat hun mensen nodig hebben.',who:'Leidinggevenden',form:'1-op-1',dur:'<span class="ph">[aantal sessies]</span>',res:'',price:'Op aanvraag'},
+  {t:'Teamcoaching',d:'Gericht op samenwerking, prestaties en de onderlinge deal.',who:'Teams',form:'Teamsessies',dur:'<span class="ph">[duur]</span>',res:'',price:'Op aanvraag'},
+  {t:'Coaching voor professionals',d:'Werkgeluk en zingeving: wat heb je nodig, en hoe ga je daarover het gesprek aan?',who:'Professionals, specialisten',form:'1-op-1',dur:'<span class="ph">[aantal sessies]</span>',res:'',price:'Op aanvraag'}]},
+ {lvl:'Borging',sub:'Zodat het blijft werken',items:[
+  {t:'Hermeting & teamontwikkeling',d:'Halfjaarlijkse hermeting en een vast ritme van 7 Keys-gesprekken, zodat de deal actueel blijft.',who:'Teams, organisaties',form:'Scan + begeleiding',dur:'Doorlopend',res:'Voortgang zichtbaar in de tijd',price:'Op aanvraag'}]}
+];
+document.getElementById('aanbod-list').innerHTML=OFFER.map((L,i)=>`
+<div class="lvl"><div class="lvl-head"><span>${i+1}</span><div><h2 style="margin:0">${L.lvl}</h2><span class="muted" style="font-family:var(--sans);font-size:1rem;color:var(--muted)">${L.sub}</span></div></div>
+<div class="grid ${L.items.length>2?'g3':'g2'}">${L.items.map(p=>`
+ <div class="product${p.flag?' flag':''}">${p.flag?`<span class="tag">${p.flag}</span>`:''}
+  <h3>${p.t}</h3><p class="muted" style="margin:0">${p.d}</p>
+  <dl><dt>Voor wie</dt><dd>${p.who}</dd><dt>Vorm</dt><dd>${p.form}</dd><dt>Duur</dt><dd>${p.dur}</dd>${p.res?`<dt>Resultaat</dt><dd>${p.res}</dd>`:''}</dl>
+  ${p.link?`<div class="price">Gratis · <a href="${p.link}">Start →</a></div>`:`<div class="price"><a href="#contact">Meer weten →</a></div>`}
+ </div>`).join('')}</div></div>`).join('')+
+ `<div class="card" style="margin-top:56px;text-align:center;padding:40px;background:var(--sage)"><h2 style="font-size:1.8rem">Niet zeker waar te beginnen?</h2><p class="muted">Begin met inzicht. De Team 7 Keys Scan laat zien waar de grootste winst zit.</p><a class="btn primary" href="#contact">Plan een kennismaking</a></div>`;
+
+/* ---------- werkgeluk-test ---------- */
+const DET={
+ doel:{k:0,l:'Zingeving'}, waarden:{k:0,l:'Waarden'},
+ interesses:{k:1,l:'Interesses'}, talenten:{k:1,l:'Talenten'},
+ uitdaging:{k:2,l:'Uitdaging'}, ontwikkeling:{k:2,l:'Ontwikkeling'},
+ vakmanschap:{k:3,l:'Vakmanschap'}, autonomie:{k:3,l:'Autonomie'},
+ verbondenheid:{k:4,l:'Verbondenheid'}, erkenning:{k:4,l:'Erkenning'},
+ zekerheid:{k:5,l:'Zekerheid'}, beloning:{k:5,l:'Beloning'},
+ werkstijl:{k:6,l:'Werkstijl'}, levensbalans:{k:6,l:'Levensbalans'}
+};
+// Ronde 1: dilemma's. Elke kant telt mee voor (of tegen) één of meer determinanten.
+const DIL=[
+ ['Werk waarin je steeds iets nieuws moet leren',{ontwikkeling:1},'Werk dat je tot in de perfectie beheerst',{vakmanschap:1,ontwikkeling:-.5}],
+ ['Een leidinggevende die je volledig vrijlaat',{autonomie:1},'Een leidinggevende die met je meedenkt en bijstuurt',{autonomie:-1}],
+ ['Een team waar je je echt thuis voelt',{verbondenheid:1},'Een team van topprofessionals, met weinig persoonlijk contact',{vakmanschap:.5,verbondenheid:-1}],
+ ['Een vast contract en een voorspelbare toekomst',{zekerheid:1},'Een avontuurlijke rol in een organisatie die snel groeit en snel verandert',{uitdaging:1,zekerheid:-1}],
+ ['10% meer salaris',{beloning:1},'Werk dat echt bijdraagt aan iets wat jij belangrijk vindt',{doel:1}],
+ ['Elke week een vrije vrijdag',{levensbalans:1},'Een sleutelrol in het belangrijkste project van de organisatie',{uitdaging:1,levensbalans:-.5}],
+ ['Een directeur die jouw werk persoonlijk noemt in de nieuwjaarsspeech',{erkenning:1},'Rustig je werk doen, zonder op de voorgrond te treden',{erkenning:-1}],
+ ['Werk dat precies aansluit bij waar je van nature goed in bent',{talenten:1},'Werk over onderwerpen die je fascineren, ook als het je niet vanzelf afgaat',{interesses:1}],
+ ['Een organisatie die vasthoudt aan haar principes, ook als dat geld kost',{waarden:1},'Een organisatie die pragmatisch is en snel resultaat boekt',{waarden:-1}],
+ ['Zelf je werktijden en werkplek bepalen',{werkstijl:1},'Een vast ritme met duidelijke afspraken en structuur',{werkstijl:-.5,zekerheid:.5}],
+ ['Elke dag je vakkennis tot het uiterste inzetten',{vakmanschap:1},'Veel afwisseling, ook in taken buiten je vak',{interesses:.5,ontwikkeling:.5}],
+ ['Een flinke bonus voor een uitzonderlijke prestatie',{beloning:1},'Een collega die zegt: “zonder jou was dit niet gelukt”',{erkenning:1}],
+ ['Werk dat je nooit mee naar huis neemt',{levensbalans:1},'Werk dat je zo boeit dat je er ’s avonds nog over nadenkt',{interesses:1,levensbalans:-.5}],
+ ['Een baan voor de lange termijn',{zekerheid:1},'Een tijdelijke rol waarin je echt het verschil maakt',{doel:1,zekerheid:-.5}],
+ ['Taken die je moeiteloos afgaan',{talenten:1,uitdaging:-.5},'Taken waar je flink voor moet zweten',{uitdaging:1}],
+ ['Werken bij een organisatie waar je trots over vertelt op een verjaardag',{waarden:1},'Werken bij de werkgever met de beste arbeidsvoorwaarden',{beloning:1}]
+];
+// Ronde 2: kaartjes
+const CARDS={doel:'Het gevoel dat mijn werk ergens toe doet',waarden:'Een organisatie die handelt zoals ik het fatsoenlijk vind',interesses:'Onderwerpen die me echt boeien',talenten:'Taken waar ik van nature goed in ben',uitdaging:'Werk dat me scherp houdt',ontwikkeling:'De kans om nieuwe dingen te leren',vakmanschap:'Mijn vakkennis volop kunnen inzetten',autonomie:'Zelf bepalen hoe ik mijn werk aanpak',verbondenheid:'Mijn collega’s',erkenning:'Dat mijn werk gezien wordt',zekerheid:'Weten waar ik aan toe ben',beloning:'Mijn salaris en voorwaarden',werkstijl:'Een manier van werken die bij mij past',levensbalans:'Ruimte voor mijn privéleven'};
+const OVER={uitdaging:'Druk en hoge verwachtingen',ontwikkeling:'Verandering en steeds weer iets nieuws',autonomie:'Vrijheid en eigen verantwoordelijkheid',verbondenheid:'Overleg en sociale verplichtingen',erkenning:'Zichtbaarheid en op de voorgrond staan',vakmanschap:'Diepgang in steeds hetzelfde vakgebied',zekerheid:'Vastigheid en routine',doel:'Idealen en missie-praat'};
+const CARDQ=[
+ {id:'mis',n:3,q:'Stel: je krijgt morgen een vergelijkbare baan elders aangeboden, met hetzelfde salaris. Wat zou je het meest <b>missen</b> als je vertrekt?',sub:'Kies er precies 3.',src:CARDS},
+ {id:'gap',n:3,q:'En als je tóch zou overstappen: wat zou je bij die nieuwe werkgever vooral <b>beter</b> willen hebben dan nu?',sub:'Kies er precies 3.',src:CARDS},
+ {id:'over',n:2,min:0,q:'Waar krijg je in je huidige werk eigenlijk <b>meer van dan je nodig hebt</b>?',sub:'Kies er maximaal 2, of geen.',src:OVER}
+];
+// Ronde 3: ruilvragen
+const TRADES=[
+ {q:'Zou je 5% salaris inleveren voor een vaste vrije vrijdag?',give:'salaris',get:'tijd voor je privéleven',d:'levensbalans'},
+ {q:'Zou je meer verantwoordelijkheid op je nemen, als je daar meer zeggenschap voor terugkrijgt?',give:'extra verantwoordelijkheid',get:'zeggenschap',d:'autonomie'},
+ {q:'Zou je je twee jaar aan je organisatie verbinden, in ruil voor een opleiding naar keuze?',give:'je commitment voor langere tijd',get:'ontwikkeling',d:'ontwikkeling'},
+ {q:'Zou je vaker buiten je comfortzone werken, als dat zichtbaar gewaardeerd wordt?',give:'stretch buiten je comfortzone',get:'zichtbare waardering',d:'erkenning'},
+ {q:'Zou je bij drukte flexibel inspringen, als je organisatie net zo flexibel is met jouw privéverplichtingen?',give:'flexibiliteit bij drukte',get:'flexibiliteit voor privé',d:'werkstijl'},
+ {q:'Zou je een stap terug in salaris accepteren voor werk dat beter past bij wat jij belangrijk vindt?',give:'salaris',get:'zinvol werk',d:'doel'},
+ {q:'Zou je je kennis actief delen en collega’s inwerken, als je daar echt tijd voor krijgt in je takenpakket?',give:'je kennis en tijd',get:'ruimte om je vak te laten zien',d:'vakmanschap'}
+];
+const BANK=[['rood','Ik sta rood','Ik geef meer dan ik terugkrijg'],['quitte','Ik sta quitte','Geven en krijgen zijn in balans'],['tegoed','Ik heb nog tegoed','Ik krijg meer dan ik geef']];
+const TALK=[['ja','Ja, uitgebreid'],['beetje','Een beetje, terloops'],['nee','Nee, nooit']];
+
+let W;
+function wInit(){W={step:0,dil:Array(DIL.length).fill(null),cards:{mis:[],gap:[],over:[]},tr:Array(TRADES.length).fill(null),bank:null,talk:null};}
+wInit();
+const STEPS=[{t:'intro'},{t:'r1intro'},...DIL.map((_,i)=>({t:'dil',i})),{t:'r2intro'},...CARDQ.map((_,i)=>({t:'cards',i})),{t:'r3intro'},...TRADES.map((_,i)=>({t:'trade',i})),{t:'bank'},{t:'talk'}];
+const TOTAL=DIL.length+CARDQ.length+TRADES.length+2;
+function done(){return W.dil.filter(x=>x!==null).length+CARDQ.filter((c,i)=>c.min===0?W.step>STEPS.findIndex(x=>x.t==='cards'&&x.i===i):W.cards[c.id].length===c.n).length+W.tr.filter(x=>x!==null).length+(W.bank?1:0)+(W.talk?1:0);}
+const back=`<button class="btn ghost" type="button" data-nav="prev">Vorige</button>`;
+function wRender(){
+ const s=STEPS[W.step], st=document.getElementById('w-stage');
+ document.getElementById('w-progress').style.display=s.t==='intro'?'none':'block';
+ const a=done(); document.getElementById('w-bar').style.width=(a/TOTAL*100)+'%'; document.getElementById('w-prog').textContent=`${a} van ${TOTAL} keuzes gemaakt`;
+ let h='';
+ if(s.t==='intro') h=`<div class="card" style="padding:34px"><h3>Zo werkt het</h3>
+   <ul class="check"><li><b>Ronde 1, dilemma’s:</b> 16 keer kiezen tussen twee aantrekkelijke situaties.</li>
+   <li><b>Ronde 2, vertrekken of blijven:</b> drie keer kaartjes kiezen over je huidige werk.</li>
+   <li><b>Ronde 3, de ruil:</b> wat zou je inruilen, en waarvoor?</li></ul>
+   <p class="muted" style="margin-top:16px">Er zijn geen goede of foute antwoorden: beide opties zijn steeds aantrekkelijk. Ga af op je eerste ingeving. Je antwoorden blijven in je eigen browser.</p>
+   <button class="btn primary" type="button" data-nav="next">Start de test</button></div>`;
+ else if(s.t==='r1intro') h=intro('Ronde 1 van 3','Dilemma’s','Je ziet steeds twee situaties. Allebei aantrekkelijk, maar je kunt er maar één kiezen. Klik op de situatie die jou het meest aantrekt.');
+ else if(s.t==='dil'){const d=DIL[s.i],v=W.dil[s.i];
+  h=`<span class="eyebrow">Ronde 1 · Dilemma ${s.i+1} van ${DIL.length}</span><h3 style="font-size:1.5rem">Wat zou jij kiezen?</h3>
+   <div class="dil"><button type="button" class="opt${v===0?' on':''}" data-dil="0"><span>A</span>${d[0]}</button><div class="vs">of</div><button type="button" class="opt${v===1?' on':''}" data-dil="1"><span>B</span>${d[2]}</button></div>
+   <div class="btns">${back}</div>`;}
+ else if(s.t==='r2intro') h=intro('Ronde 2 van 3','Vertrekken of blijven?','Nu gaat het over je huidige werk. Stel je even voor dat je zou kunnen overstappen. Wat zou je meenemen, en wat laat je graag achter?');
+ else if(s.t==='cards'){const c=CARDQ[s.i],sel=W.cards[c.id],ok=c.min===0?true:sel.length===c.n;
+  h=`<span class="eyebrow">Ronde 2 · Vraag ${s.i+1} van ${CARDQ.length}</span><h3 style="font-size:1.4rem;line-height:1.3">${c.q}</h3><p class="muted">${c.sub} <b id="c-count">${sel.length}/${c.n}</b></p>
+   <div class="cardgrid">${Object.entries(c.src).map(([id,t])=>`<button type="button" class="ccard${sel.includes(id)?' on':''}" data-card="${id}">${t}</button>`).join('')}</div>
+   <div class="btns">${back}<button class="btn primary" type="button" data-nav="next" ${ok?'':'disabled'} style="${ok?'':'opacity:.45;cursor:not-allowed'}">${c.min===0&&sel.length===0?'Niets van dit alles':'Volgende'}</button></div>`;}
+ else if(s.t==='r3intro') h=intro('Ronde 3 van 3','De ruil','Werk is altijd een ruil: je geeft iets en je krijgt iets terug. Zou jij deze ruil aangaan? Er is geen goed antwoord, alleen jouw antwoord.');
+ else if(s.t==='trade'){const t=TRADES[s.i],v=W.tr[s.i];
+  h=`<span class="eyebrow">Ronde 3 · Ruil ${s.i+1} van ${TRADES.length}</span><h3 style="font-size:1.5rem;line-height:1.3">${t.q}</h3>
+   <div class="scale4" style="grid-template-columns:repeat(3,1fr)">${[['ja','Ja, zeker'],['twijfel','Ik twijfel'],['nee','Nee']].map(([k,l])=>`<button type="button" data-trade="${k}" class="${v===k?'on':''}">${l}</button>`).join('')}</div><div class="btns">${back}</div>`;}
+ else if(s.t==='bank') h=`<span class="eyebrow">Ronde 3 · Bijna klaar</span><h3 style="font-size:1.5rem;line-height:1.3">Als je werk een bankrekening was, waar alles wat je geeft en alles wat je terugkrijgt op staat: hoe staat je saldo er dan voor?</h3>
+   <div class="choices">${BANK.map(([k,l,x])=>`<button type="button" class="choice${W.bank===k?' on':''}" data-bank="${k}">${l}<small style="display:block;font-weight:500;color:var(--muted)">${x}</small></button>`).join('')}</div><div class="btns">${back}</div>`;
+ else if(s.t==='talk') h=`<span class="eyebrow">Ronde 3 · Laatste vraag</span><h3 style="font-size:1.5rem;line-height:1.3">Heb je ooit met je leidinggevende besproken wat jij nodig hebt, en wat je daar zelf tegenover stelt?</h3>
+   <div class="choices">${TALK.map(([k,l])=>`<button type="button" class="choice${W.talk===k?' on':''}" data-talk="${k}">${l}</button>`).join('')}</div><div class="btns">${back}</div>`;
+ st.innerHTML=h;
+}
+function intro(e,t,x){return `<div class="card" style="padding:34px"><span class="eyebrow">${e}</span><h3 style="font-size:1.6rem">${t}</h3><p class="muted">${x}</p><div class="btns">${back}<button class="btn primary" type="button" data-nav="next">Verder</button></div></div>`;}
+function wGo(d){
+ if(d==='next'&&W.step===STEPS.length-1){wResult();return;}
+ W.step=Math.max(0,Math.min(STEPS.length-1,W.step+(d==='next'?1:-1)));
+ wRender(); document.getElementById('w-progress').scrollIntoView({behavior:'smooth',block:'start'});
+}
+const auto=()=>setTimeout(()=>wGo('next'),280);
+document.getElementById('w-stage').addEventListener('click',e=>{
+ const s=STEPS[W.step], t=e.target.closest('button'); if(!t) return;
+ if(t.dataset.nav){if(!t.disabled)wGo(t.dataset.nav);return;}
+ if(t.dataset.dil!==undefined){W.dil[s.i]=+t.dataset.dil;wRender();auto();return;}
+ if(t.dataset.card){const c=CARDQ[s.i],sel=W.cards[c.id],id=t.dataset.card,ix=sel.indexOf(id);
+   if(ix>-1)sel.splice(ix,1);else if(sel.length<c.n)sel.push(id);else{sel.shift();sel.push(id);} wRender();return;}
+ if(t.dataset.trade){W.tr[s.i]=t.dataset.trade;wRender();auto();return;}
+ if(t.dataset.bank){W.bank=t.dataset.bank;wRender();auto();return;}
+ if(t.dataset.talk){W.talk=t.dataset.talk;wRender();setTimeout(wResult,280);return;}
+});
+document.getElementById('w-restart').onclick=()=>{wInit();document.getElementById('w-result').classList.remove('show');wRender();document.getElementById('v-werkgeluk-test').scrollIntoView();};
+function wResult(){
+ const ids=Object.keys(DET), raw={}, max={};
+ ids.forEach(id=>{raw[id]=0;max[id]=0;});
+ DIL.forEach((d,i)=>{const side=W.dil[i]??0, str=1;
+  [[d[1],0],[d[3],1]].forEach(([m,sd])=>Object.entries(m).forEach(([id,w])=>{max[id]+=Math.abs(w); if(sd===side) raw[id]+=w*str;}));});
+ const need={}; ids.forEach(id=>need[id]=max[id]?(raw[id]/max[id]+1)/2:.5); // 0..1
+ // werkelijkheid uit kaartjes
+ const real={}; ids.forEach(id=>{real[id]=.5; if(W.cards.mis.includes(id))real[id]=1; if(W.cards.gap.includes(id))real[id]=W.cards.mis.includes(id)?.5:0;});
+ const over=W.cards.over.slice();
+ const fitOf=id=>over.includes(id)&&need[id]<.5?.3:real[id];
+ const wsum=ids.reduce((a,id)=>a+need[id]+.15,0);
+ const fit=ids.reduce((a,id)=>a+(need[id]+.15)*fitOf(id),0)/wsum;
+ const score=Math.round(Math.max(0,Math.min(1,(fit-.2)/.6))*100);
+ document.getElementById('w-score').textContent=score;
+ document.getElementById('w-verdict').textContent=score>=70?'Je werk levert grotendeels wat voor jou het zwaarst weegt. Weet wat je hier houdt, en houd het gesprek erover gaande.':score>=45?'Op een aantal punten past je werk goed, maar juist op sommige dingen die voor jou zwaar wegen, schuurt het.':'Wat voor jou het zwaarst weegt, krijg je nu te weinig. Dat kost energie, en vraagt om een gesprek over de ruil.';
+ const L=a=>a.map(id=>DET[id].l).join(' & ');
+ const byNeed=[...ids].sort((a,b)=>need[b]-need[a]);
+ const tekort=W.cards.gap.slice().sort((a,b)=>need[b]-need[a]);
+ const kracht=W.cards.mis.filter(id=>!W.cards.gap.includes(id)).sort((a,b)=>need[b]-need[a]);
+ const overLow=over.filter(id=>need[id]<.55);
+ document.getElementById('w-cards').innerHTML=`
+  <div class="card"><span class="eyebrow">Weegt voor jou het zwaarst</span><h3>${L(byNeed.slice(0,3))}</h3><p class="muted" style="margin:0">Dit trok je het sterkst in je dilemma’s. Hier moet je werk kloppen.</p></div>
+  <div class="card" style="border:2px solid var(--petrol)"><span class="eyebrow">Grootste tekort</span><h3>${L(tekort.slice(0,2))}</h3><p class="muted" style="margin:0">${need[tekort[0]]>=.55?'Wat je elders beter zou willen, én wat voor jou zwaar weegt. Hier zit de grootste frictie.':'Wat je elders beter zou willen. Het weegt voor jou minder zwaar dan je misschien denkt: kijk eerst naar wat je echt drijft.'}</p></div>
+  <div class="card"><span class="eyebrow">${overLow.length?'Mogelijk overschot':'Wat je hier houdt'}</span><h3>${overLow.length?overLow.map(id=>OVER[id]).join(' & '):L(kracht.slice(0,2))}</h3><p class="muted" style="margin:0">${overLow.length?'Hier krijg je meer van dan je nodig hebt, terwijl het voor jou weinig weegt. Meer is niet altijd beter: dit kost je mogelijk energie.':'Dit zou je missen als je vertrekt. Dat is je anker in dit werk.'}</p></div>`;
+ // ruil
+ const tv={ja:1,twijfel:.5,nee:0}; const bereid=W.tr.reduce((a,x)=>a+(tv[x]??.5),0)/TRADES.length;
+ const hiX=bereid>=.5, hiY=fit>=.52; let t,x;
+ if(hiX&&hiY){t='Een gezonde ruil';x='Je werk levert veel van wat je nodig hebt, en jij bent bereid daar iets tegenover te zetten. Dat is de basis voor duurzaam werkgeluk.';}
+ else if(hiX&&!hiY){t='Je wilt geven, maar krijgt te weinig terug';x='Je bent bereid flink te investeren, maar je werk levert nu te weinig van wat voor jou zwaar weegt. Dat is een ruil die je kunt verbeteren: maak expliciet wat je biedt én wat je vraagt.';}
+ else if(!hiX&&hiY){t='Veel ontvangen, weinig ruimte om te ruilen';x='Je werk levert je veel. Tegelijk ben je terughoudend in wat je ervoor wilt inleveren. Dat kan prima, zolang beide kanten het eerlijk vinden.';}
+ else {t='De ruil zit vast';x='Je werk levert weinig van wat je nodig hebt, en je bent ook weinig bereid om te ruilen. Dat is een signaal om de afspraken opnieuw tegen het licht te houden, van beide kanten.';}
+ const quad=hiX&&!hiY?'geven':!hiX&&hiY?'ontvangen':hiX&&hiY?'gezond':'vast';
+ const bankTxt=W.bank==='rood'?(quad==='geven'||quad==='vast'?' Je eigen gevoel bevestigt dat: je staat rood. Dat houdt niemand lang vol.':' Opvallend: zelf ervaar je dat je rood staat. Dat verschil tussen je antwoorden en je gevoel is het bespreken waard.')
+  :W.bank==='tegoed'?(quad==='ontvangen'||quad==='gezond'?' Je ervaart zelf ook dat je meer krijgt dan je geeft: dat is ruimte om te investeren.':' Opvallend: zelf ervaar je dat je nog tegoed hebt, terwijl je werk weinig levert van wat voor jou zwaar weegt.')
+  :' Zelf ervaar je de ruil als in balans.';
+ document.getElementById('w-ruil-t').textContent=t; document.getElementById('w-ruil-x').textContent=x+bankTxt;
+ document.getElementById('w-ruil-tip').innerHTML=W.talk==='nee'?'<b>Let op:</b> deze ruil is nog nooit uitgesproken. Jij en je leidinggevende werken allebei met een deal die alleen in jullie hoofd bestaat.':W.talk==='beetje'?'De ruil is terloops ter sprake gekomen. Het wordt pas een afspraak als je hem expliciet maakt.':'Goed: je hebt de ruil besproken. Is die afspraak nog actueel?';
+ const px=v=>30+v*200, py=v=>230-v*200, sx=px(.5), sy=py(.52);
+ document.getElementById('w-quad').innerHTML=`<svg viewBox="0 0 260 260" style="width:100%;max-width:300px">
+  <rect x="30" y="30" width="${sx-30}" height="${sy-30}" fill="#e3f0f1"/><rect x="${sx}" y="30" width="${230-sx}" height="${sy-30}" fill="#cfe6e9"/>
+  <rect x="30" y="${sy}" width="${sx-30}" height="${230-sy}" fill="#f4f7f8"/><rect x="${sx}" y="${sy}" width="${230-sx}" height="${230-sy}" fill="#fbe7c4"/>
+  <text x="${(30+sx)/2}" y="60" font-size="9" text-anchor="middle" fill="#5b7076">veel ontvangen,</text><text x="${(30+sx)/2}" y="71" font-size="9" text-anchor="middle" fill="#5b7076">weinig ruilruimte</text>
+  <text x="${(sx+230)/2}" y="66" font-size="9" text-anchor="middle" fill="#0b4f5c">gezonde ruil</text>
+  <text x="${(30+sx)/2}" y="190" font-size="9" text-anchor="middle" fill="#5b7076">ruil zit vast</text>
+  <text x="${(sx+230)/2}" y="184" font-size="9" text-anchor="middle" fill="#7a5306">wil geven,</text><text x="${(sx+230)/2}" y="195" font-size="9" text-anchor="middle" fill="#7a5306">krijgt te weinig</text>
+  <line x1="30" y1="230" x2="235" y2="230" stroke="#0b4f5c"/><line x1="30" y1="230" x2="30" y2="25" stroke="#0b4f5c"/>
+  <text x="130" y="250" font-size="10" text-anchor="middle" fill="#0f2e35" font-weight="700">Bereid om te ruilen →</text>
+  <text x="12" y="130" font-size="10" text-anchor="middle" fill="#0f2e35" font-weight="700" transform="rotate(-90 12 130)">Wat je werk je levert →</text>
+  <circle cx="${px(bereid)}" cy="${py(Math.max(0,Math.min(1,fit)))}" r="9" fill="#e8641b" stroke="#fff" stroke-width="3"/></svg>`;
+ const yes=TRADES.filter((_,i)=>W.tr[i]==='ja'), no=TRADES.filter((_,i)=>W.tr[i]==='nee');
+ document.getElementById('w-trades').innerHTML=`<div class="grid g2" style="gap:18px">
+  <div class="note"><b>Hier wil jij voor ruilen</b><ul style="margin:8px 0 0;padding-left:18px">${yes.length?yes.map(t=>`<li>${t.give[0].toUpperCase()+t.give.slice(1)} → ${t.get}</li>`).join(''):'<li>Geen van de voorgelegde ruilen</li>'}</ul></div>
+  <div class="note" style="background:var(--paper-2)"><b>Hier ruil je niet voor</b><ul style="margin:8px 0 0;padding-left:18px">${no.length?no.map(t=>`<li>${t.give[0].toUpperCase()+t.give.slice(1)} → ${t.get}</li>`).join(''):'<li>Je staat open voor elke ruil</li>'}</ul></div></div>`;
+ // per key
+ document.getElementById('w-chart').innerHTML=KEYS.map((k,i)=>{const ds=ids.filter(id=>DET[id].k===i);const n=ds.reduce((a,id)=>a+need[id],0)/2;const r=ds.reduce((a,id)=>a+fitOf(id),0)/2;
+  const chip=n>=.55&&r<.5?'<span class="flag-chip chip-low">tekort</span>':ds.some(id=>overLow.includes(id))?'<span class="flag-chip chip-high">overschot</span>':n>=.55&&r>=.5?'<span class="flag-chip chip-ok">kracht</span>':'<span class="flag-chip" style="background:var(--paper-2)">neutraal</span>';
+  return `<div class="crow"><b>${k.name}<small style="display:block;font-weight:500;color:var(--muted);font-size:.78rem">${ds.map(id=>DET[id].l).join(' + ')}</small></b><div class="tracks"><div class="track b"><i style="width:${Math.max(4,n*100)}%"></i></div><div class="track m"><i style="width:${Math.max(4,r*100)}%"></i></div></div>${chip}</div>`;}).join('');
+ document.getElementById('w-stage').innerHTML=''; document.getElementById('w-progress').style.display='none';
+ const res=document.getElementById('w-result'); res.classList.add('show'); res.scrollIntoView({behavior:'smooth'});
+}
+wRender();
+
+/* ---------- quickscan leidinggevenden ---------- */
+const QS=[...KEYS.map(k=>({t:k.lead,key:k.name})),
+ {t:'Ik bespreek deze onderwerpen expliciet met ieder teamlid, minstens één keer per jaar.'},
+ {t:'Wat ik mijn teamleden bied (ontwikkeling, ruimte, flexibiliteit), verschilt bewust per persoon.'},
+ {t:'Mijn teamleden weten wat ik in ruil daarvoor van hen verwacht.'}];
+const qa=QS.map(()=>null);
+const labels=['Helemaal niet','Nauwelijks','Deels','Grotendeels','Volledig'];
+document.getElementById('q-list').innerHTML=QS.map((q,i)=>`
+<div class="test-row" data-q="${i}"><p class="stmt" style="font-weight:600;color:var(--ink)">${i+1}. ${q.t}</p>
+<span class="seg" style="flex-wrap:wrap">${labels.map((l,j)=>`<button type="button" data-v="${j+1}">${l}</button>`).join('')}</span></div>`).join('');
+document.getElementById('q-list').addEventListener('click',e=>{
+ const b=e.target.closest('.seg button'); if(!b) return; const i=+b.closest('[data-q]').dataset.q;
+ qa[i]=+b.dataset.v; b.parentNode.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+ const n=qa.filter(x=>x!==null).length; document.getElementById('q-bar').style.width=(n/QS.length*100)+'%'; document.getElementById('q-prog').textContent=`${n} van ${QS.length} stellingen beantwoord`;
+});
+document.getElementById('q-go').onclick=()=>{
+ const n=qa.filter(x=>x!==null).length;
+ if(n<QS.length){document.getElementById('q-prog').textContent=`Nog ${QS.length-n} stelling(en) te gaan. Beantwoord ze allemaal voor een betrouwbare uitslag.`;return;}
+ const score=Math.round(qa.reduce((a,x)=>a+(x-1),0)/(QS.length*4)*100);
+ document.getElementById('q-score').textContent=score;
+ const [t,x]=score>=75?['Je stuurt al op de deal','Je kent je mensen goed en maakt verschil per persoon. De volgende stap: toetsen of jouw beeld klopt met wat je teamleden zelf ervaren.']
+  :score>=50?['Je kent je mensen, maar de deal is impliciet','Je hebt een goed gevoel bij je team, maar veel blijft onuitgesproken. Juist daar ontstaan verrassingen: van stille afhakers tot onverwacht vertrek.']
+  :['De deal is grotendeels onzichtbaar','Je weet nog niet goed wat je teamleden nodig hebben, en zij weten niet goed wat jij verwacht. Dat is geen verwijt, het is het startpunt.'];
+ document.getElementById('q-title').textContent=t; document.getElementById('q-text').textContent=x;
+ const blind=QS.map((q,i)=>({...q,v:qa[i]})).filter(q=>q.key).sort((a,b)=>a.v-b.v).slice(0,3);
+ document.getElementById('q-blind').innerHTML=blind.map(b=>`<div class="crow" style="grid-template-columns:130px 1fr"><b>${b.key}</b><span class="muted">${b.t}</span></div>`).join('');
+ const r=document.getElementById('q-result'); r.classList.add('show'); r.scrollIntoView({behavior:'smooth'});
+};
+
+/* ---------- kennisbank ---------- */
+const POSTS=[
+ {c:'Leiderschap',t:'Iedereen hetzelfde bieden is de duurste fout in leiderschap',h:'#artikel-duurste-fout'},
+ {c:'Model',t:'Te veel autonomie bestaat ook'},
+ {c:'HR',t:'Waarom je medewerkerstevredenheidsonderzoek je weinig vertelt'},
+ {c:'De deal',t:'De ongeschreven deal: wat je medewerkers van je verwachten (maar nooit zeggen)'},
+ {c:'Model',t:'Werkgeluk is geen eigenschap van de medewerker, en ook niet van de organisatie'},
+ {c:'Leiderschap',t:'Vervang het jaargesprek door een gesprek dat ergens over gaat'},
+ {c:'Behoud',t:'Waarom je beste mensen niet om het salaris vertrekken'},
+ {c:'Professionals',t:'Werkgeluk-test: zo lees je je profiel'}];
+document.getElementById('blog-list').innerHTML=POSTS.map(p=>`<a class="post" href="${p.h||'#kennisbank'}"><span class="cat">${p.c}</span><h3>${p.t}</h3><span class="soon">${p.h?'Lees artikel →':'Binnenkort'}</span></a>`).join('');
+const DLS=[
+ {t:'Whitepaper: De ongeschreven deal',d:'Waarom goede mensen vertrekken, en hoe je dat voorkomt.',i:'PDF'},
+ {t:'Gesprekskaart: het 7 Keys-gesprek',d:'Het gesprek in vijf stappen op één A4, voor leidinggevenden.',i:'A4'},
+ {t:'Checklist: ritueel of instrument?',d:'Hoe effectief is jullie jaargesprek eigenlijk?',i:'✓'},
+ {t:'Doe-het-zelftest werkgeluk (pdf)',d:'De werkgeluk-test op papier, met reflectievragen.',i:'PDF'}];
+document.getElementById('dl-list').innerHTML=DLS.map(d=>`<div class="card dl"><div class="ico">${d.i}</div><div><h3>${d.t}</h3><p class="muted">${d.d}</p>
+<form class="form lead-form" style="grid-template-columns:1fr auto" data-msg="Dank je! In deze conceptversie wordt nog niets verstuurd."><input type="email" placeholder="E-mailadres" required><button class="btn primary" type="submit" style="padding:10px 18px">Ontvang</button><div class="ok" style="grid-column:1/-1"></div></form></div></div>`).join('');
+
+/* ---------- forms ---------- */
+document.addEventListener('submit',e=>{
+ const f=e.target.closest('.lead-form'); if(!f) return; e.preventDefault();
+ const ok=f.querySelector('.ok'); ok.textContent=f.dataset.msg; ok.classList.add('show');
+});
+
+/* ---------- router ---------- */
+const VIEWS=['home','organisaties','aanbod','model','werkgeluk-test','teamscan','kennisbank','artikel-duurste-fout','over','contact'];
+function route(){
+ const h=(location.hash||'#home').slice(1); const v=VIEWS.includes(h)?h:'home';
+ document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));
+ document.querySelectorAll('.menu a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+v));
+ document.querySelector('.menu').classList.remove('open');
+ window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route); route();
+</script>
+</body>
+</html>
