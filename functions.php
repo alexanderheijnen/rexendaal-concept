@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '3.2.0' );
+define( 'RX_VERSION', '3.2.1' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
@@ -31,6 +31,8 @@ add_action( 'wp_head', function () {
 		echo "<meta name=\"robots\" content=\"noindex\">\n";
 	}
 	echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( get_theme_file_uri( 'assets/favicon.svg' ) ) . "\">\n";
+	echo '<link rel="icon" type="image/png" sizes="32x32" href="' . esc_url( get_theme_file_uri( 'assets/favicon-32.png' ) ) . "\">\n";
+	echo '<link rel="apple-touch-icon" href="' . esc_url( get_theme_file_uri( 'assets/apple-touch-icon.png' ) ) . "\">\n";
 }, 1 );
 
 /* Werkgeluk-test: [rx_werkgeluktest] */
@@ -248,3 +250,7 @@ function rx_install_content_v3() {
 	update_option( 'blogdescription', 'Presteren begint bij mensen' );
 	update_option( 'rx_content_v', 3, false );
 }
+
+/* Altijd het Rexendaal-icoon: oude site-icon (uit eerdere templates) niet meer tonen */
+add_action( 'init', function () { remove_action( 'wp_head', 'wp_site_icon', 99 ); } );
+add_filter( 'get_site_icon_url', function ( $url, $size ) { return get_theme_file_uri( $size >= 180 ? 'assets/apple-touch-icon.png' : 'assets/favicon-32.png' ); }, 10, 2 );
