@@ -44,3 +44,6 @@ body{-webkit-font-smoothing:antialiased}
 .rx-footer{background:#083e48;color:#bcd3d7;font-size:.9rem}
 .rx-footer a{color:#e6f1f3;text-decoration:none}
 .rx-contact-list p{margin:.3rem 0}
+
+.rx-section>.wp-block-group,.rx-header>.wp-block-group,.rx-footer>.wp-block-group{padding-left:24px;padding-right:24px}
+.wp-site-blocks>main{margin-top:0}

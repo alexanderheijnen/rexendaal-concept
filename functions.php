@@ -10,7 +10,7 @@ function rx_fonts_url() {
 
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( 'rx-fonts', rx_fonts_url(), array(), null );
-	wp_enqueue_style( 'rx-theme', get_theme_file_uri( 'assets/theme.css' ), array(), '1.0.1' );
+	wp_enqueue_style( 'rx-theme', get_theme_file_uri( 'assets/theme.css' ), array(), '1.0.2' );
 } );
 
 add_action( 'after_setup_theme', function () {
