@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '3.0.0' );
+define( 'RX_VERSION', '3.0.1' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';

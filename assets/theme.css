@@ -210,7 +210,7 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
 .rx-post-card>.wp-block-post-featured-image{margin-left:0!important;margin-right:0!important;overflow:hidden}
 .rx-article-img{margin-bottom:36px!important;border-radius:20px;overflow:hidden}
 .rx-page-img{margin:0 0 34px!important}
-.rx-page-img img{border-radius:22px;width:100%;height:auto;box-shadow:0 30px 60px -40px rgba(11,79,92,.6)}
+.rx-page-img img{border-radius:22px;width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;box-shadow:0 30px 60px -40px rgba(11,79,92,.6)}
 .rx-service-item{border:1px solid var(--rx-line);border-left:4px solid var(--rx-teal);border-radius:14px;padding:18px 22px!important;margin-top:14px!important;background:#fff}
 .rx-service-item h3{margin:0 0 4px;font-size:1.12rem}
 .rx-service-item p{margin:4px 0!important}
