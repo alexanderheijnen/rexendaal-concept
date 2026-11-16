@@ -1,5 +1,5 @@
 /* Werkgeluk-test, gescoped onder #rx-test */
-#rx-test{--ink:#0f2e35;--muted:#566c72;--petrol:#0b4f5c;--teal:#127a8a;--soft:#e6f1f2;--paper:#f6f8f8;--paper-2:#e8eef0;--line:#dbe4e6;--cta:#e8641b;--cta-d:#c9520f;--copper:#127a8a;--copper-2:#5fb3bf;--sage:#e6f1f2;--sage-2:#b7d8dc;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;font-family:var(--sans);color:var(--ink);max-width:780px;margin:0 auto}
+#rx-test{--ink:#0f2e35;--muted:#566c72;--petrol:#0b4f5c;--teal:#127a8a;--soft:#e6f1f2;--paper:#f6f8f8;--paper-2:#e8eef0;--line:#dbe4e6;--cta:#e8641b;--cta-d:#c9520f;--copper:#127a8a;--copper-2:#5fb3bf;--sage:#e6f1f2;--sage-2:#b7d8dc;--serif:'Plus Jakarta Sans',system-ui,sans-serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;font-family:var(--sans);color:var(--ink);max-width:780px;margin:0 auto}
 #rx-test h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0 0 .5em}
 #rx-test .muted{color:var(--muted)}
 #rx-test .eyebrow{display:block;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
