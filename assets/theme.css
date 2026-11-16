@@ -17,7 +17,10 @@ body{-webkit-font-smoothing:antialiased}
 .rx-header .wp-block-navigation a{font-weight:600;font-size:.94rem;color:#0f2e35;text-decoration:none}
 .rx-header .wp-block-navigation .rx-nav-cta a{background:#e8641b;color:#fff!important;padding:8px 16px;border-radius:999px}
 /* cards */
-.rx-card{background:#fff;border:1px solid #dbe4e6;border-radius:16px;padding:30px!important;height:100%}
+.rx-card{background:#fff;border:1px solid #dbe4e6;border-radius:16px;padding:30px!important}
+.wp-block-column>.rx-card,.wp-block-column>.rx-step{height:100%}
+.rx-trio{display:grid;gap:12px}
+.rx-trio>.rx-card{height:auto!important}
 .rx-card h3{margin-top:.4rem}
 .rx-card ul{color:#566c72;padding-left:18px}
 .rx-tag{font-size:.74rem!important;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#127a8a;margin:0!important}
@@ -29,7 +32,7 @@ body{-webkit-font-smoothing:antialiased}
 .rx-together{background:#0b4f5c;color:#eaf3f4;border-radius:16px;padding:34px 38px!important}
 .rx-together h3{color:#fff}
 .rx-together p{color:#cfe3e6}
-.rx-step{background:#fff;border:1px solid #dbe4e6;border-radius:16px;padding:26px 22px!important;height:100%}
+.rx-step{background:#fff;border:1px solid #dbe4e6;border-radius:16px;padding:26px 22px!important}
 .rx-step .rx-num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#0b4f5c;color:#fff;font-family:'Fraunces',serif;font-size:1.15rem;margin:0 0 6px!important}
 .rx-step p{color:#566c72;font-size:.95rem}
 .rx-person{text-align:center}
