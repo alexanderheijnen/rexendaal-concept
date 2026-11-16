@@ -234,3 +234,28 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
 .rx-form-msg{padding:14px 18px;border-radius:12px;margin-bottom:14px}
 .rx-form-msg.ok{background:#e3f4ea;color:#14532d}
 .rx-form-msg.err{background:#fde8e1;color:#7a2b0b}
+
+/* ===== v3.1 mobiel ===== */
+.rx-page-main{padding-left:24px!important;padding-right:24px!important}
+.rx-card-img img,.rx-page-img img,.rx-article-img img,.rx-post-card .wp-block-post-featured-image img{object-fit:cover!important;height:auto!important}
+.rx-card-img img{aspect-ratio:16/10!important}
+.rx-page-img img{aspect-ratio:16/7!important}
+@media(max-width:600px){.rx-page-img img{aspect-ratio:16/10!important}}
+/* menu: geen backdrop-filter op het moment dat het overlay-menu actief kan zijn (die zou het menu in de header opsluiten) */
+@media(max-width:599px){
+ .rx-header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#fff}
+}
+.rx-header .wp-block-navigation__responsive-container.is-menu-open{background:#fff!important;color:var(--rx-ink)!important;padding:24px 28px!important;z-index:100000}
+.rx-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content{padding-top:56px!important;align-items:flex-start!important;gap:6px}
+.rx-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container{gap:14px!important;align-items:flex-start!important}
+.rx-header .wp-block-navigation__responsive-container.is-menu-open a{font-size:1.35rem!important;font-weight:700!important}
+.rx-header .wp-block-navigation__responsive-container.is-menu-open .rx-nav-cta a{display:inline-block;margin-top:10px;font-size:1.1rem!important}
+.rx-header .wp-block-navigation__responsive-container-close{top:22px!important;right:22px!important}
+.rx-header .wp-block-navigation__responsive-container-open svg,.rx-header .wp-block-navigation__responsive-container-close svg{width:30px;height:30px}
+@media(max-width:781px){
+ .rx-hero-cols>.wp-block-column{flex-basis:100%!important}
+ .rx-card-media>*:not(.rx-card-img){margin-left:22px!important;margin-right:22px!important}
+ .rx-post-card>*{margin-left:20px!important;margin-right:20px!important}
+ .rx-together{padding:26px 24px!important}
+ .rx-contact-list p{flex-direction:column;gap:2px}
+}
