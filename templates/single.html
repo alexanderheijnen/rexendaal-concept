@@ -1,9 +1,40 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main","className":"rx-section","layout":{"type":"constrained"}} -->
-<main class="wp-block-group rx-section"><!-- wp:post-title {"level":1} /-->
+<!-- wp:group {"className":"rx-pagehead","layout":{"type":"constrained","contentSize":"1140px"}} -->
+<div class="wp-block-group rx-pagehead"><!-- wp:html -->
+<div class="rx-blob b1"></div><div class="rx-blob b2"></div>
+<!-- /wp:html -->
+<!-- wp:paragraph {"className":"rx-eyebrow"} -->
+<p class="rx-eyebrow"><a href="/kennisbank/">← Kennisbank</a></p>
+<!-- /wp:paragraph -->
 
-<!-- wp:post-content {"layout":{"type":"constrained"}} /--></main>
+<!-- wp:post-title {"level":1} /-->
+
+<!-- wp:post-terms {"term":"category","className":"rx-tag"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"main","className":"rx-page-main rx-article","layout":{"type":"constrained","contentSize":"740px"}} -->
+<main class="wp-block-group rx-page-main rx-article"><!-- wp:post-content {"layout":{"type":"constrained","contentSize":"740px"}} /-->
+
+<!-- wp:group {"className": "rx-cta-box", "layout": {"type": "constrained"}} -->
+<div class="wp-block-group rx-cta-box"><!-- wp:heading {"level": 3} -->
+<h3 class="wp-block-heading">Hoe past jouw werk bij jou?</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Doe de gratis werkgeluk-test, of plan een vrijblijvend kennismakingsgesprek.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/werkgeluk-test/">Doe de werkgeluk-test</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className": "is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/#contact">Kennismaken</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></main>
 <!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

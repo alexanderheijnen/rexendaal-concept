@@ -1,0 +1,51 @@
+<div id="rx-test" class="rx-test">
+<div class="progress" id="w-progress" style="display:none"><div class="bar"><i id="w-bar"></i></div><small class="muted" id="w-prog"></small></div>
+      <div id="w-stage"></div>
+
+      <div class="result" id="w-result" style="margin-top:20px">
+        <div class="card" style="padding:36px">
+          <span class="eyebrow">Jouw uitslag</span>
+          <div class="grid g2" style="align-items:center;gap:30px">
+            <div><div class="score-big" id="w-score">0</div><p class="muted" style="margin:6px 0 0">Pasvorm-score (0–100): hoe goed je werk nu levert wat voor jóu het zwaarst weegt.</p></div>
+            <p id="w-verdict" style="margin:0;font-size:1.1rem"></p>
+          </div>
+        </div>
+
+        <div class="grid g3" style="margin-top:18px" id="w-cards"></div>
+
+        <div class="card" style="margin-top:18px">
+          <span class="eyebrow">De ruil</span>
+          <div class="grid g2" style="gap:30px;align-items:center">
+            <div id="w-quad"></div>
+            <div><h3 id="w-ruil-t"></h3><p id="w-ruil-x" class="muted"></p><p id="w-ruil-tip" style="margin:0;font-size:.95rem"></p></div>
+          </div>
+          <div id="w-trades" style="margin-top:24px"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <span class="eyebrow">Achter de schermen: het 7 Keys Model</span>
+          <h3>Jouw profiel op de zeven sleutels</h3>
+          <p class="muted">Je keuzes zijn vertaald naar zeven sleutels van werkgeluk. Per sleutel zie je hoe zwaar die voor jou weegt (uit je dilemma's) en hoe je werk er nu op scoort (uit je kaartjes).</p>
+          <div class="legend"><span><i style="background:var(--petrol)"></i>Weegt voor jou</span><span><i style="background:var(--copper-2)"></i>Je werk nu</span></div>
+          <div class="chart" id="w-chart"></div>
+        </div>
+
+        <div class="card" style="margin-top:18px;background:var(--petrol);color:#eaf3f4;border:0;padding:36px">
+          <div class="grid g2" style="gap:30px">
+            <div>
+              <span class="eyebrow" style="color:#9fd4db">Volledig rapport</span>
+              <h3 style="color:#fff;font-size:1.5rem">Ontvang je volledige rapport per mail</h3>
+              <p>Met je behoefteprofiel per onderdeel, je ruilprofiel, wat je zelf kunt doen, en een voorbereiding op het gesprek met je leidinggevende over de ruil.</p>
+            </div>
+            <form class="form lead-form" data-msg="Bedankt! In deze conceptversie wordt nog niets verstuurd; in de live-versie ontvang je hier je volledige rapport.">
+              <input type="text" placeholder="Voornaam">
+              <input type="email" placeholder="E-mailadres" required>
+              <label class="consent" style="color:#bfdde1"><input type="checkbox" required> Ik ontvang mijn rapport en een korte mailserie over werkgeluk. Afmelden kan altijd.</label>
+              <button class="btn copper" type="submit">Stuur mijn rapport</button>
+              <div class="ok"></div>
+            </form>
+          </div>
+        </div>
+        <div class="btns"><button class="btn ghost" type="button" id="w-restart">Test opnieuw doen</button></div>
+      </div>
+</div>
