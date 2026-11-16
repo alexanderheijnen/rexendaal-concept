@@ -259,3 +259,4 @@ h1,h2,h3,h4{font-weight:700;letter-spacing:-.02em}
  .rx-together{padding:26px 24px!important}
  .rx-contact-list p{flex-direction:column;gap:2px}
 }
+.rx-header .wp-block-navigation__responsive-container.is-menu-open .rx-nav-cta a{padding:12px 24px!important;border-radius:999px}
