@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '3.2.1' );
+define( 'RX_VERSION', '4.0.0' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
@@ -177,8 +177,7 @@ add_action( 'admin_post_rx_contact', 'rx_handle_contact' );
 /* Lokale bedrijfsgegevens voor zoekmachines */
 add_action( 'wp_head', function () {
 	if ( ! is_front_page() ) { return; }
-	$areas = array( 'Zutphen', 'Warnsveld', 'Deventer', 'Apeldoorn', 'Twello', 'Voorst', 'Empe', 'Tonden', 'Klarenbeek', 'Brummen', 'Dieren', 'Doesburg', 'Lochem', 'Gorssel', 'Eefde', 'Almen', 'Hengelo (Gld)', 'Wichmond', 'Bronkhorst', 'Berkelland', 'Beekbergen', 'Ugchelen', 'Loenen' );
-	$data  = array(
+	$data = array(
 		'@context'    => 'https://schema.org',
 		'@type'       => 'ProfessionalService',
 		'name'        => 'Rexendaal',
@@ -187,8 +186,6 @@ add_action( 'wp_head', function () {
 		'url'         => home_url( '/' ),
 		'email'       => 'info@rexendaal.nl',
 		'telephone'   => '+31650278030',
-		'address'     => array( '@type' => 'PostalAddress', 'streetAddress' => 'Paul Rodenkolaan 36', 'postalCode' => '7207 CG', 'addressLocality' => 'Zutphen', 'addressCountry' => 'NL' ),
-		'areaServed'  => array_map( function ( $a ) { return array( '@type' => 'Place', 'name' => $a ); }, $areas ),
 		'founder'     => array( '@type' => 'Person', 'name' => 'Alexander Heijnen' ),
 	);
 	echo '<script type="application/ld+json">' . wp_json_encode( $data ) . "</script>\n";
@@ -254,3 +251,42 @@ function rx_install_content_v3() {
 /* Altijd het Rexendaal-icoon: oude site-icon (uit eerdere templates) niet meer tonen */
 add_action( 'init', function () { remove_action( 'wp_head', 'wp_site_icon', 99 ); } );
 add_filter( 'get_site_icon_url', function ( $url, $size ) { return get_theme_file_uri( $size >= 180 ? 'assets/apple-touch-icon.png' : 'assets/favicon-32.png' ); }, 10, 2 );
+
+
+/* ===================== v4: geen regiopagina's meer; werkgebied alleen op /over/ ===================== */
+function rx_old_region_slugs() {
+	return array( 'coach-zutphen', 'coach-deventer', 'coach-apeldoorn', 'coach-voorst-twello', 'coach-lochem-gorssel', 'coach-bronkhorst-berkelland', 'coach-brummen-dieren-doesburg', 'werkgebied' );
+}
+add_action( 'template_redirect', function () {
+	if ( ! is_404() ) { return; }
+	$path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	if ( in_array( $path, rx_old_region_slugs(), true ) ) {
+		wp_safe_redirect( home_url( '/over/' ), 301 );
+		exit;
+	}
+} );
+
+add_action( 'init', 'rx_install_content_v4', 31 );
+function rx_install_content_v4() {
+	if ( (int) get_option( 'rx_content_v' ) < 3 || (int) get_option( 'rx_content_v' ) >= 4 ) { return; }
+	if ( ! add_option( 'rx_v4_lock', time(), '', false ) ) { return; }
+	$admins = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
+	$author = $admins ? (int) $admins[0] : 0;
+	$pages  = json_decode( file_get_contents( get_theme_file_path( 'inc/pages.json' ) ), true );
+	foreach ( (array) $pages as $slug => $pg ) {
+		$existing = get_page_by_path( $slug );
+		$args     = array( 'post_title' => $pg['title'], 'post_content' => $pg['content'], 'post_excerpt' => $pg['excerpt'] );
+		if ( $existing ) {
+			if ( get_post_meta( $existing->ID, '_rx_managed', true ) ) { $args['ID'] = $existing->ID; wp_update_post( $args ); }
+		} else {
+			$args += array( 'post_type' => 'page', 'post_status' => 'publish', 'post_name' => $slug, 'post_author' => $author );
+			$id = wp_insert_post( $args );
+			if ( $id && ! is_wp_error( $id ) ) { update_post_meta( $id, '_rx_managed', 1 ); }
+		}
+	}
+	foreach ( rx_old_region_slugs() as $slug ) {
+		$p = get_page_by_path( $slug );
+		if ( $p && get_post_meta( $p->ID, '_rx_managed', true ) ) { wp_trash_post( $p->ID ); } // prullenbak, herstelbaar
+	}
+	update_option( 'rx_content_v', 4, false );
+}
