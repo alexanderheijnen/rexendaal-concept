@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '3.1.1' );
+define( 'RX_VERSION', '3.2.0' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
@@ -27,7 +27,9 @@ add_action( 'after_setup_theme', function () {
 } );
 
 add_action( 'wp_head', function () {
-	echo "<meta name=\"robots\" content=\"noindex\">\n"; // testsite: niet indexeren
+	if ( false !== strpos( home_url(), '//ont.' ) ) { // alleen de testsite niet indexeren
+		echo "<meta name=\"robots\" content=\"noindex\">\n";
+	}
 	echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( get_theme_file_uri( 'assets/favicon.svg' ) ) . "\">\n";
 }, 1 );
 
