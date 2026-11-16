@@ -1,0 +1,43 @@
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{-webkit-font-smoothing:antialiased}
+.rx-eyebrow{font-size:.76rem!important;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#127a8a;margin-bottom:.4rem!important}
+.rx-lead{font-size:1.18rem;color:#2c4b52}
+.rx-muted{color:#566c72}
+.rx-ph{background:#fff1c7;border-bottom:1px dashed #c99a1e;padding:0 3px;border-radius:3px}
+.rx-section{padding-top:88px!important;padding-bottom:88px!important}
+.rx-alt{background:#f6f8f8}
+.rx-hero{background:linear-gradient(180deg,#fff 0%,#f6f8f8 100%)}
+.rx-hero h1 em{color:#127a8a}
+/* header */
+.rx-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid #dbe4e6}
+.rx-header>.wp-block-group{min-height:70px}
+.rx-brand{margin:0;font-family:'Fraunces',Georgia,serif;font-size:1.3rem;font-weight:600}
+.rx-brand a{text-decoration:none;color:#0f2e35}
+.rx-brand span{font-family:'Manrope',sans-serif;font-size:.78rem;color:#566c72;font-weight:600;margin-left:4px}
+.rx-header .wp-block-navigation a{font-weight:600;font-size:.94rem;color:#0f2e35;text-decoration:none}
+.rx-header .wp-block-navigation .rx-nav-cta a{background:#e8641b;color:#fff!important;padding:8px 16px;border-radius:999px}
+/* cards */
+.rx-card{background:#fff;border:1px solid #dbe4e6;border-radius:16px;padding:30px!important;height:100%}
+.rx-card h3{margin-top:.4rem}
+.rx-card ul{color:#566c72;padding-left:18px}
+.rx-tag{font-size:.74rem!important;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#127a8a;margin:0!important}
+.rx-pillar{border-top:4px solid #0b4f5c}
+.rx-pillar-2{border-top-color:#127a8a}
+.rx-pillar-3{border-top-color:#5fb3bf}
+.rx-trio .rx-card{padding:18px 20px!important}
+.rx-trio p{margin:0}
+.rx-together{background:#0b4f5c;color:#eaf3f4;border-radius:16px;padding:34px 38px!important}
+.rx-together h3{color:#fff}
+.rx-together p{color:#cfe3e6}
+.rx-step{background:#fff;border:1px solid #dbe4e6;border-radius:16px;padding:26px 22px!important;height:100%}
+.rx-step .rx-num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#0b4f5c;color:#fff;font-family:'Fraunces',serif;font-size:1.15rem;margin:0 0 6px!important}
+.rx-step p{color:#566c72;font-size:.95rem}
+.rx-person{text-align:center}
+.rx-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 12px!important;background:#e6f1f2;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:2rem;color:#0b4f5c}
+.rx-values{gap:10px!important}
+.rx-values p{background:#e6f1f2;color:#0b4f5c;font-weight:700;padding:8px 16px;border-radius:999px;font-size:.92rem;margin:0!important}
+.is-style-outline .wp-block-button__link{background:transparent!important;color:#0b4f5c!important;border:2px solid #0b4f5c!important}
+.is-style-outline .wp-block-button__link:hover{background:#0b4f5c!important;color:#fff!important}
+.rx-footer{background:#083e48;color:#bcd3d7;font-size:.9rem}
+.rx-footer a{color:#e6f1f3;text-decoration:none}
+.rx-contact-list p{margin:.3rem 0}
