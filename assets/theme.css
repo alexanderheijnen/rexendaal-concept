@@ -146,7 +146,7 @@ h2.wp-block-heading{letter-spacing:-.015em}
 /* ===== Page head & article ===== */
 .rx-pagehead{position:relative;overflow:hidden;background:linear-gradient(160deg,#083e48 0%,#0b4f5c 60%,#127a8a 100%);color:#eaf3f4;padding-top:80px!important;padding-bottom:80px!important}
 .rx-pagehead>*{position:relative;z-index:2}
-.rx-pagehead .rx-blob{z-index:0}
+.rx-pagehead>.rx-blob{position:absolute;z-index:0;margin:0!important;max-width:none!important}
 .rx-pagehead h1{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);max-width:900px}
 .rx-pagehead .rx-eyebrow,.rx-pagehead .rx-tag a{color:var(--rx-mint)}
 .rx-page-main{padding-top:60px!important;padding-bottom:90px!important}
