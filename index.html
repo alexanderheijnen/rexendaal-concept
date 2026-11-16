@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rexendaal: coaching & training</title>
+<meta name="description" content="Rexendaal is een kleine praktijk voor individuele coaching, teamcoaching en training. Voor effectieve mensen, bevlogen professionals en teams die samen excelleren.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f2e35;--muted:#566c72;--petrol:#0b4f5c;--petrol-d:#083e48;--teal:#127a8a;--soft:#e6f1f2;--paper:#f6f8f8;--line:#dbe4e6;--cta:#e8641b;--cta-d:#c9520f;
+ --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,-apple-system,Segoe UI,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.65;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,4.6vw,3.3rem)}
+h2{font-size:clamp(1.7rem,3vw,2.3rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+a{color:var(--teal)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:720px}
+section{padding:88px 0}
+.alt{background:var(--paper)}
+.eyebrow{display:block;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.lead{font-size:1.18rem;color:#2c4b52}
+.muted{color:var(--muted)}
+.ph{background:#fff1c7;border-bottom:1px dashed #c99a1e;padding:0 3px;border-radius:3px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.brand small{font-family:var(--sans);font-size:.78rem;color:var(--muted);font-weight:600;margin-left:2px}
+.menu{display:flex;gap:4px;list-style:none;margin:0;padding:0;align-items:center}
+.menu a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.94rem;padding:8px 12px;border-radius:8px}
+.menu a:hover{background:var(--soft)}
+.menu a.cta{background:var(--cta);color:#fff;margin-left:6px}
+.menu a.cta:hover{background:var(--cta-d)}
+.burger{display:none;background:none;border:0;padding:8px;cursor:pointer}
+@media(max-width:860px){.burger{display:block}.menu{display:none;position:absolute;top:70px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:10px 24px 20px;border-bottom:1px solid var(--line)}.menu.open{display:flex}.menu a.cta{margin:8px 0 0;text-align:center}}
+
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--petrol);font-size:1rem;transition:.15s;cursor:pointer;font-family:var(--sans)}
+.btn.primary{background:var(--cta);border-color:var(--cta);color:#fff}
+.btn.primary:hover{background:var(--cta-d);border-color:var(--cta-d)}
+.btn.ghost{color:var(--petrol);background:transparent}
+.btn.ghost:hover{background:var(--petrol);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+.hero{padding:100px 0 90px;background:linear-gradient(180deg,#fff 0%,var(--paper) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:60px;align-items:center}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.trio{display:grid;gap:12px}
+.trio div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:flex;gap:14px;align-items:center}
+.trio b{font-family:var(--serif);font-size:1.05rem;display:block}
+.trio small{color:var(--muted);font-size:.88rem}
+.dot{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--petrol);font-family:var(--serif);font-weight:600}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g3,.g2,.g4{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px}
+.card .tag{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.card h3{margin-top:8px}
+.card ul{padding-left:18px;margin:12px 0 0;color:var(--muted)}
+.card ul li{margin:4px 0}
+.card .more{display:inline-block;margin-top:18px;font-weight:700;text-decoration:none}
+.pillar{border-top:4px solid var(--petrol)}
+.pillar:nth-child(2){border-top-color:var(--teal)}
+.pillar:nth-child(3){border-top-color:#5fb3bf}
+
+.together{margin-top:40px;background:var(--petrol);color:#eaf3f4;border-radius:16px;padding:34px 38px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.together h3{color:#fff;margin:0 0 4px}
+.together p{margin:0;color:#cfe3e6}
+@media(max-width:700px){.together{grid-template-columns:1fr}}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{position:relative;padding:26px 22px;background:#fff;border:1px solid var(--line);border-radius:16px}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--petrol);color:#fff;font-family:var(--serif);font-size:1.15rem;margin-bottom:14px}
+.step h3{font-size:1.1rem;margin-bottom:.3em}
+.step p{margin:0;color:var(--muted);font-size:.95rem}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+.person{text-align:center}
+.avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 16px;background:var(--soft);display:grid;place-items:center;font-family:var(--serif);font-size:2rem;color:var(--petrol);border:3px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.person p{font-size:.95rem}
+
+.values{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.values span{background:var(--soft);color:var(--petrol);font-weight:700;padding:8px 16px;border-radius:999px;font-size:.92rem}
+
+.form{display:grid;gap:12px}
+.form label{font-weight:700;font-size:.9rem;display:grid;gap:6px}
+.form input,.form textarea,.form select{font:inherit;padding:13px 15px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);width:100%}
+.ok{display:none;background:var(--soft);padding:14px 16px;border-radius:10px;font-size:.93rem}
+.ok.show{display:block}
+.contact-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+.contact-list li{display:flex;gap:12px;align-items:center}
+.contact-list b{min-width:90px}
+
+footer{background:var(--petrol-d);color:#bcd3d7;padding:40px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:#e6f1f3;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg width="34" height="24" viewBox="0 0 38 28" aria-hidden="true"><circle cx="13" cy="14" r="11" fill="none" stroke="#0b4f5c" stroke-width="2.5"/><circle cx="25" cy="14" r="11" fill="none" stroke="#127a8a" stroke-width="2.5"/></svg>
+      Rexendaal <small>coaching & training</small>
+    </a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.menu').classList.toggle('open')"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0f2e35" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <ul class="menu" onclick="this.classList.remove('open')">
+      <li><a href="#aanpak">Aanpak</a></li>
+      <li><a href="#aanbod">Aanbod</a></li>
+      <li><a href="#werkwijze">Werkwijze</a></li>
+      <li><a href="#over">Over ons</a></li>
+      <li><a class="cta" href="#contact">Kennismaken</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Individuele coaching · Teamcoaching · Training</span>
+      <h1>Betere resultaten door <em>effectieve mensen</em> en teams die samen excelleren.</h1>
+      <p class="lead">Rexendaal is een kleine praktijk die professionals, leidinggevenden en teams helpt om effectiever te werken, met meer plezier, en met betere resultaten. Persoonlijk, praktisch en gericht op wat het oplevert.</p>
+      <div class="btns">
+        <a class="btn primary" href="#contact">Plan een kennismaking</a>
+        <a class="btn ghost" href="#aanbod">Bekijk het aanbod</a>
+      </div>
+    </div>
+    <div class="trio" aria-label="Onze drie pijlers">
+      <div><span class="dot">1</span><span><b>Persoonlijke effectiviteit</b><small>Richting, focus en invloed</small></span></div>
+      <div><span class="dot">2</span><span><b>Werkgeluk</b><small>Werk dat bij je past</small></span></div>
+      <div><span class="dot">3</span><span><b>High performance</b><small>Samen duurzaam excelleren</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="aanpak">
+  <div class="wrap">
+    <div class="narrow">
+      <span class="eyebrow">Onze aanpak</span>
+      <h2>Drie pijlers, één doel: mensen en teams op hun best.</h2>
+      <p class="lead">We werken vanuit drie elkaar versterkende inzichten. Wie effectief is, met plezier werkt en samen met anderen de lat hoog legt, haalt betere resultaten. Duurzaam.</p>
+    </div>
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card pillar">
+        <span class="tag">Pijler 1</span>
+        <h3>Persoonlijke effectiviteit</h3>
+        <p class="muted">Effectief zijn begint bij jezelf: weten wat je wilt bereiken, je energie richten op wat je kunt beïnvloeden, en keuzes maken op basis van wat echt belangrijk is.</p>
+        <ul><li>Eigen regie en proactiviteit</li><li>Doelen en prioriteiten</li><li>Invloed en samenwerking</li></ul>
+      </div>
+      <div class="card pillar">
+        <span class="tag">Pijler 2</span>
+        <h3>Werkgeluk</h3>
+        <p class="muted">Ons eigen model ziet werkgeluk als een ruil tussen mens en organisatie. Het werkt als beide kanten krijgen wat ze nodig hebben. En meer is niet altijd beter: wat de één energie geeft, kost de ander energie.</p>
+        <ul><li>Wat heb jij nodig om te floreren?</li><li>Waar schuurt het, en waarom?</li><li>Het goede gesprek over de ruil</li></ul>
+      </div>
+      <div class="card pillar">
+        <span class="tag">Pijler 3</span>
+        <h3>High performance</h3>
+        <p class="muted">Onderzoek naar organisaties die jarenlang beter presteren dan vergelijkbare organisaties wijst steeds op dezelfde factoren: sterk leiderschap, openheid en actiegerichtheid, een lange termijnblik, continu verbeteren en goede mensen.</p>
+        <ul><li>High performing individuen</li><li>High performing teams</li><li>Leiderschap dat het mogelijk maakt</li></ul>
+      </div>
+    </div>
+    <div class="together">
+      <svg width="86" height="62" viewBox="0 0 86 62" aria-hidden="true"><circle cx="28" cy="24" r="20" fill="none" stroke="#9fd4db" stroke-width="2.5"/><circle cx="58" cy="24" r="20" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="43" cy="40" r="20" fill="none" stroke="#5fb3bf" stroke-width="2.5"/></svg>
+      <div><h3>Waar de drie samenkomen</h3><p>Persoonlijke effectiviteit zonder werkgeluk brandt op. Werkgeluk zonder prestaties is vrijblijvend. Prestaties zonder effectieve mensen houden geen stand. Daarom werken we altijd aan alle drie.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="aanbod" class="alt">
+  <div class="wrap">
+    <div class="narrow">
+      <span class="eyebrow">Aanbod</span>
+      <h2>Wat we doen.</h2>
+      <p class="lead">Altijd op maat, en altijd met een helder doel vooraf.</p>
+    </div>
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card">
+        <span class="tag">Voor individuen</span>
+        <h3>Individuele coaching</h3>
+        <p class="muted">Voor leidinggevenden en professionals die effectiever willen werken, beter willen leiden of weer plezier willen vinden in hun werk.</p>
+        <ul><li>Persoonlijk leiderschap</li><li>Effectiviteit en focus</li><li>Werkgeluk en loopbaanvragen</li><li>Leidinggeven in de praktijk</li></ul>
+        <a class="more" href="#contact">Meer weten →</a>
+      </div>
+      <div class="card">
+        <span class="tag">Voor teams</span>
+        <h3>Teamcoaching</h3>
+        <p class="muted">Voor teams die beter willen samenwerken, meer eigenaarschap willen nemen en samen betere resultaten willen halen.</p>
+        <ul><li>Van samenwerken naar samenspel</li><li>Eigenaarschap en aanspreken</li><li>Op weg naar een high performing team</li><li>Teamdag of doorlopend traject</li></ul>
+        <a class="more" href="#contact">Meer weten →</a>
+      </div>
+      <div class="card">
+        <span class="tag">Voor groepen</span>
+        <h3>Training & workshops</h3>
+        <p class="muted">Praktische trainingen en inspirerende workshops, in company, voor teams, afdelingen of leidinggevenden.</p>
+        <ul><li>Persoonlijke effectiviteit</li><li>Werkgeluk als prestatieversneller</li><li>High performance teams</li><li>Leiderschap in de praktijk</li></ul>
+        <a class="more" href="#contact">Meer weten →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="werkwijze">
+  <div class="wrap">
+    <div class="narrow">
+      <span class="eyebrow">Werkwijze</span>
+      <h2>Zo werken we samen.</h2>
+    </div>
+    <div class="steps" style="margin-top:34px">
+      <div class="step"><h3>Kennismaking</h3><p>Een vrijblijvend gesprek over je vraag, en of we bij elkaar passen.</p></div>
+      <div class="step"><h3>Intake & doel</h3><p>We maken samen helder wat er moet veranderen, en hoe we dat merken.</p></div>
+      <div class="step"><h3>Traject</h3><p>Coaching, teamsessies of training: praktisch, met direct toepasbare stappen.</p></div>
+      <div class="step"><h3>Evaluatie</h3><p>We kijken terug op het doel, en spreken af hoe je het vasthoudt.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="over" class="alt">
+  <div class="wrap">
+    <div class="grid g2" style="gap:56px;align-items:start">
+      <div>
+        <span class="eyebrow">Over ons</span>
+        <h2>Een kleine praktijk, met persoonlijke aandacht.</h2>
+        <p class="lead">Bij Rexendaal werk je direct met de coach of trainer die jouw traject begeleidt. Geen accountmanagers, geen standaardprogramma's.</p>
+        <p><span class="ph">[Een paar zinnen over het ontstaan van Rexendaal en waar jullie samen voor staan.]</span></p>
+        <div class="values"><span>Persoonlijk</span><span>Praktisch</span><span>Resultaatgericht</span><span>Eerlijk</span></div>
+      </div>
+      <div class="grid g2">
+        <div class="card person"><div class="avatar">A</div><h3>Alexander <span class="ph">[achternaam]</span></h3><p class="muted"><span class="ph">[Coach & trainer: achtergrond, specialisme]</span></p></div>
+        <div class="card person"><div class="avatar">?</div><h3><span class="ph">[Naam]</span></h3><p class="muted"><span class="ph">[Coach & trainer: achtergrond, specialisme]</span></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap grid g2" style="gap:56px;align-items:start">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2>Kennismaken?</h2>
+      <p class="lead">Een kennismakingsgesprek is vrijblijvend. Vertel ons kort waar je mee bezig bent, dan nemen we contact met je op.</p>
+      <ul class="contact-list">
+        <li><b>E-mail</b><span class="ph">[e-mailadres]</span></li>
+        <li><b>Telefoon</b><span class="ph">[telefoonnummer]</span></li>
+        <li><b>Regio</b><span class="ph">[werkgebied]</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <form class="form" id="cform">
+        <label>Naam<input type="text" required></label>
+        <label>E-mailadres<input type="email" required></label>
+        <label>Waar gaat het over?
+          <select><option>Individuele coaching</option><option>Teamcoaching</option><option>Training of workshop</option><option>Iets anders</option></select>
+        </label>
+        <label>Je vraag<textarea rows="4"></textarea></label>
+        <button class="btn primary" type="submit">Verstuur</button>
+        <div class="ok" id="cok">Dank je! Dit is een conceptversie: het formulier wordt nog niet verzonden.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Rexendaal coaching & training</span>
+    <span><a href="#aanpak">Aanpak</a> · <a href="#aanbod">Aanbod</a> · <a href="#contact">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();document.getElementById('cok').classList.add('show');});
+</script>
+</body>
+</html>
