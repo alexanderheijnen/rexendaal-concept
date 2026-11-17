@@ -1,4 +1,16 @@
 (function () {
+	/* v6: kennismakingsknoppen naar het formulier op dezelfde pagina; vaste mobiele knop verbergen als het formulier in beeld is */
+	var form = document.getElementById('contact');
+	if (!form) { return; }
+	document.querySelectorAll('a[href="/#contact"]').forEach(function (a) { a.setAttribute('href', '#contact'); });
+	var sticky = document.querySelector('.rx-sticky-cta');
+	if (sticky && 'IntersectionObserver' in window) {
+		new IntersectionObserver(function (entries) {
+			entries.forEach(function (e) { sticky.classList.toggle('is-hidden', e.isIntersecting); });
+		}, { threshold: 0.05 }).observe(form);
+	}
+})();
+(function () {
 	var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 	if (reduce || !('IntersectionObserver' in window)) { return; }
 	document.documentElement.classList.add('rx-js');

@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '5.0.0' );
+define( 'RX_VERSION', '6.0.0' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
@@ -328,3 +328,78 @@ function rx_cleanup_faq_v5() {
 	update_option( 'rx_faq_clean_v5', 1, false );
 	do_action( 'litespeed_purge_all' );
 }
+
+
+/* ===================== v6: kennismaking prominent, kwaliteitsbewijs, schema ===================== */
+
+/* Pagina's met het kennismakingsblok (dienstpagina's, aanbod, over) */
+function rx_has_cta_box() {
+	if ( ! is_page() || is_front_page() ) { return false; }
+	$post = get_post( get_queried_object_id() );
+	return $post && false !== strpos( $post->post_content, 'rx-cta-box' );
+}
+
+/* Ervaringen van klanten: inc/ervaringen.json. Alleen echte ervaringen, met toestemming. Leeg = niets tonen. */
+function rx_ervaringen_html() {
+	$file  = get_theme_file_path( 'inc/ervaringen.json' );
+	$items = file_exists( $file ) ? (array) json_decode( file_get_contents( $file ), true ) : array();
+	$items = array_filter( $items, function ( $i ) { return ! empty( $i['tekst'] ) && ! empty( $i['naam'] ); } );
+	if ( ! $items ) { return ''; }
+	$out = '<section class="rx-ervaringen" aria-label="Ervaringen"><h2 class="wp-block-heading">Ervaringen</h2>';
+	foreach ( array_slice( $items, 0, 3 ) as $i ) {
+		$out .= '<blockquote class="rx-quote"><p>' . esc_html( $i['tekst'] ) . '</p><cite>' . esc_html( $i['naam'] ) . ( empty( $i['functie'] ) ? '' : ', ' . esc_html( $i['functie'] ) ) . '</cite></blockquote>';
+	}
+	return $out . '</section>';
+}
+
+add_filter( 'the_content', function ( $html ) {
+	if ( ! in_the_loop() || ! is_main_query() || ! rx_has_cta_box() || false === strpos( $html, 'rx-cta-box' ) ) { return $html; }
+	$is_over = is_page( 'over' );
+
+	// 1. Direct onder de intro: een duidelijke uitnodiging voor de gratis kennismaking
+	$intro = '<div class="rx-intro-cta"><div class="rx-intro-cta-txt"><strong>Gratis kennismakingsgesprek</strong><span>30 minuten · vrijblijvend · fysiek of online</span></div><a class="rx-btn" href="#contact">Plan een kennismaking</a></div>';
+	$html  = preg_replace( '#(<p class="rx-lead">.*?</p>)#s', '$1' . $intro, $html, 1 );
+
+	// 2. Het kennismakingsblok: anker, duidelijke kop en tekst
+	$html = preg_replace( '#<div class="wp-block-group rx-cta-box#', '<div id="contact" class="wp-block-group rx-cta-box', $html, 1 );
+	$html = str_replace( '>Kennismaken?</h2>', '>Plan een gratis kennismaking</h2>', $html );
+	$html = str_replace(
+		'Een kennismakingsgesprek is vrijblijvend. Laat je gegevens achter, dan neem ik binnen twee werkdagen contact op.',
+		'In een gratis gesprek van 30 minuten bespreken we je vraag en kijken we of het klikt. Vrijblijvend, fysiek of online. Laat je gegevens achter, dan neem ik binnen twee werkdagen contact op.',
+		$html
+	);
+
+	// 3. Kwaliteitsbewijs bij het formulier (niet op /over/, daar staat het al uitgebreid)
+	if ( ! $is_over ) {
+		$trust = '<div class="rx-trust"><p><strong>Je spreekt met Alexander Heijnen.</strong> WO bedrijfskundige met 30 jaar ervaring in het bedrijfsleven, coach en counselor (ACC), NLP Practitioner en Lean Master Black Belt. <a href="/over/">Meer over Alexander →</a></p></div>';
+		$html  = preg_replace( '#(<div id="contact" class="wp-block-group rx-cta-box[^"]*"[^>]*>)#', rx_ervaringen_html() . '$1', $html, 1 );
+		$html  = preg_replace( '#(Laat je gegevens achter, dan neem ik binnen twee werkdagen contact op\.</p>)#', '$1' . $trust, $html, 1 );
+	}
+	return $html;
+}, 10 );
+
+/* Formulierknop */
+add_filter( 'do_shortcode_tag', function ( $out, $tag ) {
+	if ( 'rx_contact' !== $tag ) { return $out; }
+	return str_replace( '>Verstuur</button>', '>Plan mijn kennismaking</button>', $out );
+}, 10, 2 );
+
+/* Mobiel: vaste knop onderin, verdwijnt zodra het formulier in beeld is */
+add_action( 'wp_footer', function () {
+	if ( ! rx_has_cta_box() && ! is_front_page() ) { return; }
+	echo '<a class="rx-sticky-cta" href="#contact">Gratis kennismaking</a>' . "\n";
+} );
+
+/* Persoonsgegevens voor zoekmachines op /over/ */
+add_action( 'wp_head', function () {
+	if ( ! is_page( 'over' ) ) { return; }
+	$person = array(
+		'@context'   => 'https://schema.org',
+		'@type'      => 'Person',
+		'name'       => 'Alexander Heijnen',
+		'jobTitle'   => 'Coach en trainer',
+		'worksFor'   => array( '@type' => 'Organization', 'name' => 'Rexendaal', 'url' => home_url( '/' ) ),
+		'knowsAbout' => array( 'Coaching', 'Teamcoaching', 'Leiderschap', 'Werkgeluk', 'NLP', 'Lean', 'Agile en Scrum', 'Creativiteit' ),
+	);
+	echo '<script type="application/ld+json">' . wp_json_encode( $person, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
+}, 6 );
