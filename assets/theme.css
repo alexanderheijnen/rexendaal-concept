@@ -277,10 +277,6 @@ html{scroll-behavior:smooth}
 .rx-quote{margin:16px 0;padding:18px 22px;background:var(--rx-paper);border-left:4px solid var(--rx-teal);border-radius:12px}
 .rx-quote p{margin:0 0 8px;font-style:italic}
 .rx-quote cite{font-style:normal;font-weight:600;color:var(--rx-muted);font-size:.9rem}
-.rx-sticky-cta{display:none}
 @media (max-width:782px){
 	.rx-intro-cta .rx-btn{width:100%;text-align:center}
-	.rx-sticky-cta{display:block;position:fixed;left:16px;right:16px;bottom:16px;z-index:50;text-align:center;background:var(--rx-cta);color:#fff!important;font-weight:700;text-decoration:none;padding:14px 20px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(0,0,0,.35);transition:opacity .25s,transform .25s}
-	.rx-sticky-cta.is-hidden{opacity:0;transform:translateY(120%);pointer-events:none}
-	body{padding-bottom:76px}
 }

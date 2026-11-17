@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '6.0.0' );
+define( 'RX_VERSION', '6.1.0' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
@@ -357,7 +357,7 @@ add_filter( 'the_content', function ( $html ) {
 	$is_over = is_page( 'over' );
 
 	// 1. Direct onder de intro: een duidelijke uitnodiging voor de gratis kennismaking
-	$intro = '<div class="rx-intro-cta"><div class="rx-intro-cta-txt"><strong>Gratis kennismakingsgesprek</strong><span>30 minuten · vrijblijvend · fysiek of online</span></div><a class="rx-btn" href="#contact">Plan een kennismaking</a></div>';
+	$intro = '<div class="rx-intro-cta"><div class="rx-intro-cta-txt"><strong>Gratis kennismakingsgesprek</strong><span>30 minuten · online · vrijblijvend</span></div><a class="rx-btn" href="#contact">Plan een kennismaking</a></div>';
 	$html  = preg_replace( '#(<p class="rx-lead">.*?</p>)#s', '$1' . $intro, $html, 1 );
 
 	// 2. Het kennismakingsblok: anker, duidelijke kop en tekst
@@ -365,7 +365,7 @@ add_filter( 'the_content', function ( $html ) {
 	$html = str_replace( '>Kennismaken?</h2>', '>Plan een gratis kennismaking</h2>', $html );
 	$html = str_replace(
 		'Een kennismakingsgesprek is vrijblijvend. Laat je gegevens achter, dan neem ik binnen twee werkdagen contact op.',
-		'In een gratis gesprek van 30 minuten bespreken we je vraag en kijken we of het klikt. Vrijblijvend, fysiek of online. Laat je gegevens achter, dan neem ik binnen twee werkdagen contact op.',
+		'In een gratis online gesprek van 30 minuten bespreken we je vraag en kijken we of het klikt. Vrijblijvend. Laat je gegevens achter, dan neem ik binnen twee werkdagen contact op.',
 		$html
 	);
 
@@ -383,12 +383,6 @@ add_filter( 'do_shortcode_tag', function ( $out, $tag ) {
 	if ( 'rx_contact' !== $tag ) { return $out; }
 	return str_replace( '>Verstuur</button>', '>Plan mijn kennismaking</button>', $out );
 }, 10, 2 );
-
-/* Mobiel: vaste knop onderin, verdwijnt zodra het formulier in beeld is */
-add_action( 'wp_footer', function () {
-	if ( ! rx_has_cta_box() && ! is_front_page() ) { return; }
-	echo '<a class="rx-sticky-cta" href="#contact">Gratis kennismaking</a>' . "\n";
-} );
 
 /* Persoonsgegevens voor zoekmachines op /over/ */
 add_action( 'wp_head', function () {
