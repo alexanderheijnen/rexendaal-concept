@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'RX_VERSION', '4.0.0' );
+define( 'RX_VERSION', '5.0.0' );
 
 function rx_fonts_url() {
 	return 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap';
@@ -289,4 +289,42 @@ function rx_install_content_v4() {
 		if ( $p && get_post_meta( $p->ID, '_rx_managed', true ) ) { wp_trash_post( $p->ID ); } // prullenbak, herstelbaar
 	}
 	update_option( 'rx_content_v', 4, false );
+}
+
+
+/* ===================== v5: FAQ-schema via wp_head in plaats van in de pagina-inhoud ===================== */
+function rx_faq_schema() {
+	static $faq = null;
+	if ( null === $faq ) {
+		$file = get_theme_file_path( 'inc/faq-schema.json' );
+		$faq  = file_exists( $file ) ? (array) json_decode( file_get_contents( $file ), true ) : array();
+	}
+	return $faq;
+}
+
+add_action( 'wp_head', function () {
+	if ( ! is_page() ) { return; }
+	$slug = get_post_field( 'post_name', get_queried_object_id() );
+	$faq  = rx_faq_schema();
+	if ( empty( $faq[ $slug ] ) ) { return; }
+	echo '<script type="application/ld+json">' . wp_json_encode( $faq[ $slug ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
+}, 6 );
+
+/* Eenmalig: de als tekst zichtbare FAQ-code (script-tag was weggefilterd) uit de pagina's halen */
+add_action( 'init', 'rx_cleanup_faq_v5', 32 );
+function rx_cleanup_faq_v5() {
+	if ( get_option( 'rx_faq_clean_v5' ) ) { return; }
+	if ( ! add_option( 'rx_faq_clean_v5_lock', time(), '', false ) ) { return; }
+	global $wpdb;
+	foreach ( array_keys( rx_faq_schema() ) as $slug ) {
+		$p = get_page_by_path( $slug );
+		if ( ! $p ) { continue; }
+		$new = preg_replace( '#\s*<!-- wp:html -->(?:(?!<!-- /wp:html -->).)*?FAQPage.*?<!-- /wp:html -->#s', '', $p->post_content );
+		if ( null !== $new && $new !== $p->post_content ) {
+			$wpdb->update( $wpdb->posts, array( 'post_content' => $new ), array( 'ID' => $p->ID ) );
+			clean_post_cache( $p->ID );
+		}
+	}
+	update_option( 'rx_faq_clean_v5', 1, false );
+	do_action( 'litespeed_purge_all' );
 }

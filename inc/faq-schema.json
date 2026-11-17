@@ -1,0 +1,302 @@
+{
+ "coaching": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Hoeveel coachsessies heb ik nodig?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Dat hangt af van je vraag. De meeste trajecten bestaan uit 4 tot 7 sessies. Na de kennismaking krijg je een voorstel op maat."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Wat is het verschil tussen coaching en counselling?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Coaching is vooral gericht op doelen en ontwikkeling. Counselling biedt meer ruimte voor wat je dwarszit, bijvoorbeeld bij vastlopen of een moeilijke periode."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kan mijn werkgever de coaching betalen?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, veel werkgevers vergoeden coaching vanuit een opleidings- of vitaliteitsbudget. We stemmen de afspraken graag met je werkgever af."
+    }
+   }
+  ]
+ },
+ "teamcoaching": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Hoe lang duurt een teamcoachingtraject?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Meestal 4 tot 6 sessies verspreid over 3 tot 6 maanden. Een losse teamdag kan ook."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Werkt teamcoaching ook voor Scrum- of SAFe-teams?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja. Alexander is SAFe-, Agile- en Scrum-professional en weet hoe de methode en de mensen samenkomen."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Waar vinden de sessies plaats?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Meestal op locatie bij de organisatie, of op een inspirerende plek buiten de deur."
+    }
+   }
+  ]
+ },
+ "teamontwikkeling": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Wat is een teamscan?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Een korte online vragenlijst die iedereen in het team invult. De uitkomst laat zien waar het team sterk is en waar de winst zit."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is teamontwikkeling iets anders dan teamcoaching?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Teamontwikkeling is het doel, teamcoaching is een van de manieren om daar te komen. Ook trainingen en workshops dragen eraan bij."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Hoe meet je resultaat?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "We herhalen de teamscan na het traject en bespreken de verschillen."
+    }
+   }
+  ]
+ },
+ "werkgeluk": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Hoe meet ik mijn werkgeluk?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Doe de gratis werkgeluk-test op deze site. In ongeveer acht minuten zie je wat jij nodig hebt en waar je werk schuurt."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is werkgeluk niet vooral de verantwoordelijkheid van de werkgever?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Het is een gedeelde verantwoordelijkheid. Daarom coachen en trainen we zowel medewerkers als leidinggevenden."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Bieden jullie ook een workshop werkgeluk voor teams?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, de workshop Werkgeluk als prestatieversneller duurt 3 uur en is geschikt voor teams en MT's."
+    }
+   }
+  ]
+ },
+ "persoonlijke-effectiviteit": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Wat is persoonlijke effectiviteit precies?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Het vermogen om je tijd en energie te richten op wat belangrijk is en waar je invloed op hebt, zodat je je doelen haalt."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kan de training in company?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, de training wordt op locatie gegeven en afgestemd op jullie praktijk."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Hoe snel merk ik resultaat?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Vaak al na de eerste weken, omdat je direct met je eigen werk aan de slag gaat."
+    }
+   }
+  ]
+ },
+ "work-life-balance": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Is dit therapie?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Nee. Coaching is gericht op werk en dagelijks functioneren. Bij ernstige klachten verwijzen we door naar je huisarts of een specialist."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Wat doe ik met mindfulness op het werk?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Korte, praktische oefeningen om je aandacht te richten en tot rust te komen, die je tussen je werk door kunt doen."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kan dit ook online?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, coachsessies kunnen ook online plaatsvinden."
+    }
+   }
+  ]
+ },
+ "counselling": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Wat is het verschil met een psycholoog?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Counselling is kortdurend en gericht op dagelijks functioneren. Bij psychische klachten verwijzen we door."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Hoeveel gesprekken zijn nodig?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Soms is één gesprek genoeg, meestal zijn het er drie tot vijf."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is het vertrouwelijk?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, wat je bespreekt blijft tussen ons."
+    }
+   }
+  ]
+ },
+ "nlp-coaching": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Voor wie is NLP-coaching geschikt?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Voor iedereen die een concreet patroon wil doorbreken en praktisch aan de slag wil."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is NLP wetenschappelijk bewezen?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "NLP is vooral een praktische gereedschapskist. Wij gebruiken het naast beproefde coachingmethoden, niet als vervanging."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kan de training in company?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, de training wordt op locatie gegeven."
+    }
+   }
+  ]
+ },
+ "leiderschap": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Is leiderschapscoaching ook voor ervaren managers?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, juist ervaren leidinggevenden gebruiken coaching om scherp te blijven en hun eigen patronen te doorbreken."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kan de training voor een groep leidinggevenden?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, de trainingen worden in company gegeven."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Hoe sluit dit aan op teamcoaching?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Bij een teamtraject coachen we de leidinggevende vaak parallel, zodat afspraken ook echt landen."
+    }
+   }
+  ]
+ },
+ "trainingen-workshops": {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Hoe groot mag de groep zijn?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Trainingen werken het best met 8 tot 14 deelnemers. Workshops kunnen ook met grotere groepen."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Kunnen workshops worden gecombineerd?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Ja, bijvoorbeeld de workshop Werkgeluk met Psychologische veiligheid op een teamdag."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Waar vinden ze plaats?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Op locatie bij jullie organisatie, of op een andere passende locatie."
+    }
+   }
+  ]
+ }
+}
